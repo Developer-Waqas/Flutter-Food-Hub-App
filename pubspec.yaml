@@ -85,6 +85,9 @@ flutter:
     - family: SofiaSemiBold
       fonts:
         - asset: assets/fonts/Sofia Pro Semi Bold.ttf
+    - family: Phosphate
+      fonts:
+        - asset: assets/fonts/PhosphatePro.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

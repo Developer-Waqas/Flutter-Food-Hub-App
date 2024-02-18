@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../utilities/routes_name/routes_name.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -69,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Center(
               child: Row(
                 children: [
-                  Text('Food',style: TextS,)
+                  Text('Food',style: headingStyle1,),
                 ],
               ),
             ),

@@ -6,3 +6,9 @@ TextStyle headingStyle1 = TextStyle(
   color: white,
   fontFamily: 'Phosphate',
 );
+
+TextStyle headingStyle2 = TextStyle(
+  fontSize: 40,
+  color: white70,
+  fontFamily: 'Phosphate',
+);

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'utilities/routes_name/routes_name.dart';
+import 'utilities/routes_paths/routes_paths.dart';
+
+
 void main() {
+
   runApp(const MyApp());
 }
 
@@ -10,7 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: RoutesName.splashScreen,
+      onGenerateRoute: RoutesPaths.generateRoute,
     );
   }
 }
+
 

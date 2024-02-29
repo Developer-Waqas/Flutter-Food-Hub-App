@@ -12,3 +12,21 @@ TextStyle headingStyle2 = TextStyle(
   color: white70,
   fontFamily: 'Phosphate',
 );
+
+TextStyle headingStyle3 = TextStyle(
+  fontFamily: 'SofiaSemiBold',
+  fontSize: 45,
+  color: black,
+);
+
+TextStyle headingStyle3a = TextStyle(
+  fontFamily: 'SofiaSemiBold',
+  fontSize: 53,
+  color: splashColor,
+);
+
+TextStyle headingStyle4 = TextStyle(
+  fontFamily: 'SofiaLight',
+  fontSize: 18,
+  color: blueGrey,
+);

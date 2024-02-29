@@ -88,6 +88,9 @@ flutter:
     - family: Phosphate
       fonts:
         - asset: assets/fonts/PhosphatePro.ttf
+    - family: SofiaLight
+      fonts:
+        - asset: assets/fonts/Sofia Pro Light.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

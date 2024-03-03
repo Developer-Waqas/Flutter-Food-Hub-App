@@ -17,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage('assets/images/img_wlcme_bg.png'),
@@ -28,7 +28,7 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SafeArea(
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Column(
@@ -61,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
                     style: headingStyle3a,
                   ),
                   Text(
-                    'Your favourite foods delivered\n fast at your door.',
+                    'Your favourite foods delivered\nfast at your door.',
                     style: headingStyle4,
                   ),
                 ],

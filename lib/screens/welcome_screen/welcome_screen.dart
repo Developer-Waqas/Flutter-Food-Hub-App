@@ -104,7 +104,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -116,7 +116,7 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           scale: 3,
                           image: AssetImage('assets/images/img_fb_logo.png')),
                     ),
@@ -127,7 +127,7 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           scale: 3,
                           image:
                               AssetImage('assets/images/img_google_logo.png')),
@@ -139,7 +139,7 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           scale: 3,
                           image:
                               AssetImage('assets/images/img_apple_logo.png')),
@@ -151,14 +151,14 @@ class WelcomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           scale: 4,
                           image: AssetImage('assets/images/img_x_logo.png')),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -176,10 +176,11 @@ class WelcomeScreen extends StatelessWidget {
                   border: Border.all(color: white, width: 1),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+
                   Text(
                     "Already have an Account?",
                     style: TextStyle(
@@ -188,7 +189,7 @@ class WelcomeScreen extends StatelessWidget {
                       color: black,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 3,
                   ),
                   TextButton(

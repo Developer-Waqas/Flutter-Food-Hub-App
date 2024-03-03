@@ -7,6 +7,8 @@ class MyButtons extends StatelessWidget {
   Color color;
   BorderRadiusGeometry? borderRadius;
   String text;
+  TextStyle? style;
+  BoxBorder? border;
 
   MyButtons({
     super.key,
@@ -15,27 +17,29 @@ class MyButtons extends StatelessWidget {
     this.borderRadius,
     required this.color,
     required this.text,
+    this.style,
+    this.border,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: borderRadius,
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: 'SofiaRegular',
-            color: splashColor,
-            fontSize: 14
+    return InkWell(
+      onTap: (){},
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: borderRadius,
+          border: border,
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: style,
+            ),
           ),
         ),
-      ),
     );
   }
 }

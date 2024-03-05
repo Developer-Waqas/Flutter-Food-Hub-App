@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 
-class MyButtons extends StatelessWidget {
+class CustomButton3 extends StatelessWidget {
   double height;
   double width;
   Color color;
@@ -11,7 +11,7 @@ class MyButtons extends StatelessWidget {
   BoxBorder? border;
   void Function()? onTap;
 
-  MyButtons({
+  CustomButton3({
     super.key,
     required this.width,
     required this.height,
@@ -39,9 +39,9 @@ class MyButtons extends StatelessWidget {
           child: Text(
             text,
             style: style,
-            ),
           ),
         ),
+      ),
     );
   }
 }

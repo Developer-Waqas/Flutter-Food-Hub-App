@@ -30,3 +30,9 @@ TextStyle headingStyle4 = TextStyle(
   fontSize: 18,
   color: blueGrey,
 );
+
+TextStyle headingStyle5 = TextStyle(
+  fontFamily: 'SofiaSemiBold',
+  fontSize: 36.41,
+  color: black,
+);

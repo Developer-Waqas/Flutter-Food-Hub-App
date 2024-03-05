@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/components/custom_button/custom_button.dart';
+import 'package:food_hub_app/utilities/routes_name/routes_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_colors/app_color.dart';
@@ -36,6 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     MyButtons(
+                      onTap: (){},
                       width: 55,
                       height: 32,
                       color: white,
@@ -86,9 +88,9 @@ class WelcomeScreen extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    "Sign in with",
+                    "Or Login with",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontFamily: 'SofiaMedium',
                       color: black,
                     ),
@@ -110,50 +112,62 @@ class WelcomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 53,
-                    width: 65.27,
-                    decoration: BoxDecoration(
-                      color: white,
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                          scale: 3,
-                          image: AssetImage('assets/images/img_fb_logo.png')),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      height: 53,
+                      width: 65.27,
+                      decoration: BoxDecoration(
+                        color: white,
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                            scale: 3,
+                            image: AssetImage('assets/images/img_fb_logo.png')),
+                      ),
                     ),
                   ),
-                  Container(
-                    height: 53,
-                    width: 65.27,
-                    decoration: BoxDecoration(
-                      color: white,
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                          scale: 3,
-                          image:
-                              AssetImage('assets/images/img_google_logo.png')),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      height: 53,
+                      width: 65.27,
+                      decoration: BoxDecoration(
+                        color: white,
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                            scale: 3,
+                            image:
+                                AssetImage('assets/images/img_google_logo.png')),
+                      ),
                     ),
                   ),
-                  Container(
-                    height: 53,
-                    width: 65.27,
-                    decoration: BoxDecoration(
-                      color: white,
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                          scale: 3,
-                          image:
-                              AssetImage('assets/images/img_apple_logo.png')),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      height: 53,
+                      width: 65.27,
+                      decoration: BoxDecoration(
+                        color: white,
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                            scale: 15,
+                            image:
+                                AssetImage('assets/images/img_apple_logo.png')),
+                      ),
                     ),
                   ),
-                  Container(
-                    height: 53,
-                    width: 65.27,
-                    decoration: BoxDecoration(
-                      color: white,
-                      shape: BoxShape.circle,
-                      image: const DecorationImage(
-                          scale: 4,
-                          image: AssetImage('assets/images/img_x_logo.png')),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      height: 53,
+                      width: 65.27,
+                      decoration: BoxDecoration(
+                        color: white,
+                        shape: BoxShape.circle,
+                        image: const DecorationImage(
+                            scale: 13,
+                            image: AssetImage('assets/images/img_x_logo.png')),
+                      ),
                     ),
                   ),
                 ],
@@ -163,6 +177,9 @@ class WelcomeScreen extends StatelessWidget {
               ),
               Center(
                 child: MyButtons(
+                  onTap: (){
+                    Navigator.pushNamedAndRemoveUntil(context, RoutesName.signupScreen, (route) => false);
+                  },
                   width: 312,
                   height: 54,
                   color: black12,
@@ -184,21 +201,20 @@ class WelcomeScreen extends StatelessWidget {
                   Text(
                     "Already have an Account?",
                     style: TextStyle(
-                      fontFamily: 'SofiaMedium',
+                      fontFamily: 'SofiaRegular',
                       fontSize: 16,
                       color: black,
                     ),
                   ),
-                  const SizedBox(
-                    width: 3,
-                  ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(context, RoutesName.loginScreen, (route) => false);
+                    },
                     child: Text(
                       'Login',
                       style: TextStyle(
                         fontFamily: 'SofiaMedium',
-                        fontSize: 16,
+                        fontSize: 17,
                         color: splashColor,
                       ),
                     ),

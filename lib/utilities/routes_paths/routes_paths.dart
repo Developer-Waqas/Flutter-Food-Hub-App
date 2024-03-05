@@ -14,7 +14,7 @@ class RoutesPaths {
       case RoutesName.welcomeScreen:
         return MaterialPageRoute(builder: (context) => WelcomeScreen());
       case RoutesName.homeScreen:
-        return MaterialPageRoute(builder: (context) => const HomeScreen());
+        return MaterialPageRoute(builder: (context) =>  HomeScreen());
       case RoutesName.loginScreen:
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case RoutesName.signupScreen:

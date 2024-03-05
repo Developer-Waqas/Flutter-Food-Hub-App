@@ -213,6 +213,12 @@ class SignUpScreen extends StatelessWidget {
                     width: 65.27,
                     decoration: BoxDecoration(
                       color: white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       shape: BoxShape.circle,
                       image: const DecorationImage(
                           scale: 3,
@@ -228,6 +234,12 @@ class SignUpScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 3,
                           image:
@@ -243,6 +255,12 @@ class SignUpScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 15,
                           image:
@@ -256,8 +274,14 @@ class SignUpScreen extends StatelessWidget {
                     height: 53,
                     width: 65.27,
                     decoration: BoxDecoration(
-                      color: white70,
+                      color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 13,
                           image: AssetImage('assets/images/img_x_logo.png')),

@@ -13,13 +13,10 @@ class LoginScreen extends StatelessWidget {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   login() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString('name', nameController.text.toString() );
     sp.setString('email', emailController.text.toString());
     sp.setBool('isLogin', true);
   }
@@ -64,30 +61,14 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Text(
-                    'Sign Up',
+                    'Login',
                     style: headingStyle5,
                   ),
                   const SizedBox(
                     height: 20,
-                  ),
-                  const Text(
-                    'Full Name',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'SofiaRegular',
-                        color: Color(0xff9796A1)),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  CustomTextField(
-                    hintText: 'Type Full Name',
-                  ),
-                  const SizedBox(
-                    height: 10,
                   ),
                   const Text(
                     'E-mail',
@@ -122,16 +103,30 @@ class LoginScreen extends StatelessWidget {
                       child: const Icon(CupertinoIcons.eye_slash),
                     ),
                   ),
+                  SizedBox(height: 10,),
+                  Center(
+                    child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontFamily: 'SofiaRegular',
+                            color: splashColor,
+                          ),
+                        )),
+                  )
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 10,
+            ),
             Center(
               child: CustomButton3(
                 width: 248,
                 height: 60,
                 color: splashColor,
-                text: 'Login',
+                text: 'LOGIN',
                 style: TextStyle(
                   fontFamily: 'SofiaMedium',
                   color: white,
@@ -144,7 +139,6 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 Text(
                   "Don't have an Account?",
                   style: TextStyle(
@@ -155,7 +149,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context, RoutesName.signupScreen, (route) => false);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, RoutesName.signupScreen, (route) => false);
                   },
                   child: Text(
                     'Sign Up',
@@ -168,7 +163,9 @@ class LoginScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -212,6 +209,12 @@ class LoginScreen extends StatelessWidget {
                     width: 65.27,
                     decoration: BoxDecoration(
                       color: white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       shape: BoxShape.circle,
                       image: const DecorationImage(
                           scale: 3,
@@ -227,10 +230,16 @@ class LoginScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 3,
                           image:
-                          AssetImage('assets/images/img_google_logo.png')),
+                              AssetImage('assets/images/img_google_logo.png')),
                     ),
                   ),
                 ),
@@ -242,10 +251,16 @@ class LoginScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 15,
                           image:
-                          AssetImage('assets/images/img_apple_logo.png')),
+                              AssetImage('assets/images/img_apple_logo.png')),
                     ),
                   ),
                 ),
@@ -255,8 +270,14 @@ class LoginScreen extends StatelessWidget {
                     height: 53,
                     width: 65.27,
                     decoration: BoxDecoration(
-                      color: white70,
+                      color: white,
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey,
+                          offset: Offset(0, 4),
+                        )
+                      ],
                       image: const DecorationImage(
                           scale: 13,
                           image: AssetImage('assets/images/img_x_logo.png')),

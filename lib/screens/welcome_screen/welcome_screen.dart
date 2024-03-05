@@ -119,6 +119,12 @@ class WelcomeScreen extends StatelessWidget {
                       width: 65.27,
                       decoration: BoxDecoration(
                         color: white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: grey,
+                            offset: Offset(0, 4),
+                          )
+                        ],
                         shape: BoxShape.circle,
                         image: const DecorationImage(
                             scale: 3,
@@ -134,10 +140,16 @@ class WelcomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: white,
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: grey,
+                            offset: Offset(0, 4),
+                          )
+                        ],
                         image: const DecorationImage(
                             scale: 3,
                             image:
-                                AssetImage('assets/images/img_google_logo.png')),
+                            AssetImage('assets/images/img_google_logo.png')),
                       ),
                     ),
                   ),
@@ -149,10 +161,16 @@ class WelcomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: white,
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: grey,
+                            offset: Offset(0, 4),
+                          )
+                        ],
                         image: const DecorationImage(
                             scale: 15,
                             image:
-                                AssetImage('assets/images/img_apple_logo.png')),
+                            AssetImage('assets/images/img_apple_logo.png')),
                       ),
                     ),
                   ),
@@ -164,6 +182,12 @@ class WelcomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: white,
                         shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: grey,
+                            offset: Offset(0, 4),
+                          )
+                        ],
                         image: const DecorationImage(
                             scale: 13,
                             image: AssetImage('assets/images/img_x_logo.png')),

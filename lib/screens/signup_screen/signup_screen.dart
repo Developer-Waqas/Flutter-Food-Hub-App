@@ -7,15 +7,21 @@ import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/utilities/routes_name/routes_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
 
+class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  TextEditingController passwordController = TextEditingController();
+
+  TextEditingController nameController = TextEditingController();
+
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   signUp() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
@@ -23,7 +29,6 @@ class SignUpScreen extends StatelessWidget {
     sp.setString('email', emailController.text.toString());
     sp.setBool('isSignUp', true);
   }
-
 
   @override
   Widget build(BuildContext context) {

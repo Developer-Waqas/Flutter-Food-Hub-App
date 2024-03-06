@@ -8,11 +8,18 @@ import '../../constants/app_colors/app_color.dart';
 import '../../constants/app_styles/app_style.dart';
 import '../../utilities/routes_name/routes_name.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   login() async {
@@ -45,8 +52,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.popAndPushNamed(
-                        context, RoutesName.welcomeScreen);
+                    Navigator.popAndPushNamed(context, RoutesName.signupScreen);
                   },
                   icon: Icon(
                     CupertinoIcons.back,
@@ -61,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 40,
+                    height: 60,
                   ),
                   Text(
                     'Login',
@@ -103,10 +109,15 @@ class LoginScreen extends StatelessWidget {
                       child: const Icon(CupertinoIcons.eye_slash),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Center(
                     child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              RoutesName.forgotPassword, (route) => false);
+                        },
                         child: Text(
                           'Forgot Password?',
                           style: TextStyle(
@@ -118,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(
@@ -131,7 +142,13 @@ class LoginScreen extends StatelessWidget {
                   fontFamily: 'SofiaMedium',
                   color: white,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    RoutesName.homeScreen,
+                    (route) => false,
+                  );
+                },
                 borderRadius: BorderRadius.circular(28.41),
               ),
             ),
@@ -150,7 +167,10 @@ class LoginScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
-                        context, RoutesName.signupScreen, (route) => false);
+                      context,
+                      RoutesName.signupScreen,
+                      (route) => false,
+                    );
                   },
                   child: Text(
                     'Sign Up',
@@ -163,7 +183,7 @@ class LoginScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -212,7 +232,7 @@ class LoginScreen extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       shape: BoxShape.circle,
@@ -233,7 +253,7 @@ class LoginScreen extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -254,7 +274,7 @@ class LoginScreen extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -275,7 +295,7 @@ class LoginScreen extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(

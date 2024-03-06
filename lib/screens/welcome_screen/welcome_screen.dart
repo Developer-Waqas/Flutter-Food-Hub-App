@@ -207,7 +207,7 @@ class WelcomeScreen extends StatelessWidget {
                   width: 312,
                   height: 54,
                   color: black12,
-                  text: 'Start with email or phone number',
+                  text: 'Start with E-mail',
                   style: TextStyle(
                     fontFamily: 'SofiaMedium',
                     color: milky,

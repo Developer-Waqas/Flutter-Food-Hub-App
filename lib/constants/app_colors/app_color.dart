@@ -9,3 +9,4 @@ Color black = Colors.black;
 Color blueGrey = const Color(0xff30384F);
 Color grey = Colors.grey;
 Color milky = Color(0xffFEFEFE);
+Color headColor = Color(0xff323643);

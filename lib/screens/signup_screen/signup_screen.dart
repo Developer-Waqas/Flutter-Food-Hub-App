@@ -131,7 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Center(
               child: CustomButton3(
                 width: 248,
@@ -174,7 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 )
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -220,8 +220,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: white,
                       boxShadow: [
                         BoxShadow(
+                          blurRadius: 12,
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       shape: BoxShape.circle,
@@ -241,8 +242,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
+                          blurRadius: 12,
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -262,8 +264,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
+                          blurRadius: 12,
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -283,8 +286,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
+                          blurRadius: 12,
                           color: grey,
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(

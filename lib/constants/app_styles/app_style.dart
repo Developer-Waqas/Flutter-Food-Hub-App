@@ -34,5 +34,11 @@ TextStyle headingStyle4 = TextStyle(
 TextStyle headingStyle5 = TextStyle(
   fontFamily: 'SofiaSemiBold',
   fontSize: 36.41,
+  color: headColor,
+);
+
+TextStyle headingStyle5a = TextStyle(
+  fontFamily: 'SofiaSemiBold',
+      fontSize: 30,
   color: black,
 );

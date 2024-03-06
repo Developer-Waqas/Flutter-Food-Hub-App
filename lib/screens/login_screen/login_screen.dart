@@ -233,6 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         BoxShadow(
                           color: grey,
                           offset: const Offset(0, 4),
+                          blurRadius: 12,
                         )
                       ],
                       shape: BoxShape.circle,
@@ -254,6 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         BoxShadow(
                           color: grey,
                           offset: const Offset(0, 4),
+                          blurRadius: 12,
                         )
                       ],
                       image: const DecorationImage(
@@ -274,6 +276,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
+                          blurRadius: 12,
                           offset: const Offset(0, 4),
                         )
                       ],
@@ -295,6 +298,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       boxShadow: [
                         BoxShadow(
                           color: grey,
+                          blurRadius: 12,
                           offset: const Offset(0, 4),
                         )
                       ],

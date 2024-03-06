@@ -121,8 +121,9 @@ class WelcomeScreen extends StatelessWidget {
                         color: white,
                         boxShadow: [
                           BoxShadow(
+                            blurRadius: 8,
                             color: grey,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           )
                         ],
                         shape: BoxShape.circle,
@@ -142,8 +143,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
+                            blurRadius: 8,
                             color: grey,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(
@@ -163,8 +165,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
+                            blurRadius: 8,
                             color: grey,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(
@@ -184,8 +187,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
+                            blurRadius: 8,
                             color: grey,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(

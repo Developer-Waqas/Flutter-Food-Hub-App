@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
     ///page routing conditions=================================
     if (isSignUp == true || isLogin == true) {
       Timer(const Duration(seconds: 3), () {
-        Navigator.pushNamedAndRemoveUntil(context, RoutesName.homeScreen, (route) => false);
+        Navigator.pushNamedAndRemoveUntil(context, RoutesName.mainScreen, (route) => false);
       });
     } else {
       Timer(const Duration(seconds: 3), () {

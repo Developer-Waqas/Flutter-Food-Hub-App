@@ -220,9 +220,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: white,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 12,
-                          color: grey,
-                          offset: const Offset(0, 4),
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       shape: BoxShape.circle,
@@ -242,9 +242,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 12,
-                          color: grey,
-                          offset: const Offset(0, 4),
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -264,9 +264,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 12,
-                          color: grey,
-                          offset: const Offset(0, 4),
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -286,9 +286,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 12,
-                          color: grey,
-                          offset: const Offset(0, 4),
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(

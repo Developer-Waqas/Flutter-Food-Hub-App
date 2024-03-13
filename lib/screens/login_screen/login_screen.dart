@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: () {
                   Navigator.pushNamedAndRemoveUntil(
                     context,
-                    RoutesName.homeScreen,
+                    RoutesName.mainScreen,
                     (route) => false,
                   );
                 },
@@ -231,9 +231,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: white,
                       boxShadow: [
                         BoxShadow(
-                          color: grey,
-                          offset: const Offset(0, 4),
-                          blurRadius: 12,
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       shape: BoxShape.circle,
@@ -253,9 +253,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: grey,
-                          offset: const Offset(0, 4),
-                          blurRadius: 12,
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
+                          offset: Offset(0, 4),
                         )
                       ],
                       image: const DecorationImage(
@@ -275,8 +275,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: grey,
-                          blurRadius: 12,
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
                           offset: const Offset(0, 4),
                         )
                       ],
@@ -297,8 +297,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: grey,
-                          blurRadius: 12,
+                          color: black.withOpacity(0.4),
+                          blurRadius: 6,
                           offset: const Offset(0, 4),
                         )
                       ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_hub_app/screens/forgot_password_screen/forgot_password_screen.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
 import 'package:food_hub_app/screens/login_screen/login_screen.dart';
+import 'package:food_hub_app/screens/main_screen/main_screen.dart';
 import 'package:food_hub_app/screens/pin_code_screen/pin_code_screen.dart';
 import 'package:food_hub_app/screens/reset_password_screen/reset_password_screen.dart';
 import 'package:food_hub_app/screens/signup_screen/signup_screen.dart';
@@ -16,8 +17,8 @@ class RoutesPaths {
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case RoutesName.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
-      case RoutesName.homeScreen:
-        return MaterialPageRoute(builder: (context) =>  HomeScreen());
+      case RoutesName.mainScreen:
+        return MaterialPageRoute(builder: (context) =>  MainScreen());
       case RoutesName.loginScreen:
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case RoutesName.signupScreen:

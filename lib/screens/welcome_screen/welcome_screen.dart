@@ -121,9 +121,9 @@ class WelcomeScreen extends StatelessWidget {
                         color: white,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8,
-                            color: grey,
-                            offset: const Offset(0, 4),
+                            color: black.withOpacity(0.4),
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           )
                         ],
                         shape: BoxShape.circle,
@@ -143,9 +143,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8,
-                            color: grey,
-                            offset: const Offset(0, 4),
+                            color: black.withOpacity(0.4),
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(
@@ -165,9 +165,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8,
-                            color: grey,
-                            offset: const Offset(0, 4),
+                            color: black.withOpacity(0.4),
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(
@@ -187,9 +187,9 @@ class WelcomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8,
-                            color: grey,
-                            offset: const Offset(0, 4),
+                            color: black.withOpacity(0.4),
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           )
                         ],
                         image: const DecorationImage(

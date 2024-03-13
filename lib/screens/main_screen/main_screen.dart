@@ -17,16 +17,16 @@ class _MainScreenState extends State<MainScreen> {
   List _pages = [
     HomeScreen(),
     const Center(
-      child: Text("About"),
+      child: Text("Address"),
     ),
     const Center(
-      child: Text("Products"),
+      child: Text("Cart"),
     ),
     const Center(
-      child: Text("Contact"),
+      child: Text("Favorite"),
     ),
     const Center(
-      child: Text("Settings"),
+      child: Text("Notification"),
     ),
   ];
 
@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
-            label: "Location",
+            label: "Delivery Address",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag),

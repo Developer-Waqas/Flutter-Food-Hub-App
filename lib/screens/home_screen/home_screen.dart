@@ -5,6 +5,7 @@ import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/screens/burger_screen/burger_screen.dart';
 import 'package:food_hub_app/screens/donut_screen/donut_screen.dart';
+import 'package:food_hub_app/screens/pizza_screen/pizza_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -44,10 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     const BurgerScreen(),
     const DonutScreen(),
-    const Text("Pizza"),
-    const Text("Mexican"),
-    const Text("Asian"),
-    const Text("Fries"),
+    const PizzaScreen(),
+    const Center(child: Text("COMING SOON...",style: TextStyle(
+      fontFamily: 'Phosphate',
+      fontSize: 35,
+    ),)),
+    const Center(child: Text("COMING SOON...",style: TextStyle(
+      fontFamily: 'Phosphate',
+      fontSize: 35,
+    ),)),
+    const Center(child: Text("COMING SOON...",style: TextStyle(
+      fontFamily: 'Phosphate',
+      fontSize: 35,
+    ),)),
   ];
 
   int selectedTabIndex = 0;
@@ -82,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: const Color(0xffEEEEEE),
                         )),
                     child: CustomTextField(
-                      fillColor: Color(0xffEFEFEF),
+                      fillColor: const Color(0xffEFEFEF),
                       prefixIcon: const Icon(CupertinoIcons.search),
                       hintText: 'Find for food or restaurant...',
                     ),
@@ -108,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   itemCount: dataList.length,
                   scrollDirection: Axis.horizontal,
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
@@ -133,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ? splashColor.withOpacity(0.5)
                                         : black.withOpacity(0.4),
                                     blurRadius: 6,
-                                    offset: Offset(5, 5))
+                                    offset: const Offset(5, 5))
                               ],
                               borderRadius: BorderRadius.circular(100)),
                           child: Padding(
@@ -142,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle,
                                   ),
@@ -160,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 7,
                                 ),
                                 Text(
@@ -171,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : Colors.black,
                                       fontSize: 10),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                               ],

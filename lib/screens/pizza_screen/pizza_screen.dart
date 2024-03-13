@@ -3,8 +3,8 @@ import 'package:food_hub_app/components/my_container/my_container.dart';
 
 import '../../constants/app_colors/app_color.dart';
 
-class DonutScreen extends StatelessWidget {
-  const DonutScreen({super.key});
+class PizzaScreen extends StatelessWidget {
+  const PizzaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +12,20 @@ class DonutScreen extends StatelessWidget {
     ///Restaurant List====================================
     List<Map<String, dynamic>> dataList = [
       {
-        "name": "Dikin' Donuts",
-        "image": "img_dikin_donut.png",
-        "time": "5 mints",
+        "name": "Pizza Hut",
+        "image": "img_pizza_hut.png",
+        "time": "7 mints",
         "rating": 4.9,
       },
       {
-        "name": "Donut Palace Donuts",
-        "image": "img_donut_palace.png",
+        "name": "Domino's Pizza",
+        "image": "img_domino_pizza.png",
         "time": "8 mints",
         "rating": 4.2,
       },
       {
-        "name": "Yum Yum Donuts",
-        "image": "img_yum_yum_donut.png",
+        "name": "Blaze Pizza",
+        "image": "img_blaze_pizza.png",
         "time": "13 mints",
         "rating": 4.6,
       },
@@ -34,23 +34,23 @@ class DonutScreen extends StatelessWidget {
     ///Popular Burgers==============================
     List<Map<String, dynamic>> dataList2 = [
       {
-        "name": "Sprinkle Donut",
-        "image": "img_sprinkle_donut.png",
-        "price": 5.8,
+        "name": "Cheese Pizza",
+        "image": "img_cheese_pizza.png",
+        "price": 6.8,
       },
       {
-        "name": "Glazed Donut",
-        "image": "img_glazed_donut.png",
-        "price": 5.0,
+        "name": "Veggie Pizza",
+        "image": "img_veggie_pizza.png",
+        "price": 6.4,
       },
       {
-        "name": "Cronut Donut",
-        "image": "img_cronut_donut.png",
+        "name": "BBG Pizza",
+        "image": "img_bbg_pizza.png",
         "price": 5.5,
       },
       {
-        "name": "Cruller Donut",
-        "image": "img_cruller_donut.png",
+        "name": "Greek Pizza",
+        "image": "img_greek_pizza.png",
         "price": 4.8,
       },
     ];
@@ -277,11 +277,11 @@ class DonutScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.start,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
-                                      MyContainer(text: 'SWEATS'),
-                                      const SizedBox(width: 15,),
-                                      MyContainer(text: 'DONUTS'),
+                                      MyContainer(text: 'FAST FOOD'),
+                                      MyContainer(text: 'TASTY'),
+                                      MyContainer(text: 'DELICIOUS'),
                                     ],
                                   ),
                                 ],

@@ -98,6 +98,9 @@ class BurgerScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 8,
+            ),
             Container(
               height: 300,
               child: ListView.builder(

@@ -59,23 +59,23 @@ class MyDrawer extends StatelessWidget {
 
             ///Navigation drawer list===============
             ListTile(
-              leading: const Icon(CupertinoIcons.person),
+              leading: const Icon(CupertinoIcons.square_list_fill),
+              title: const Text('My Orders'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(CupertinoIcons.person_alt),
               title: const Text('Profile'),
               onTap: () {},
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.star),
-              title: const Text('Rewards'),
+              leading: const Icon(Icons.location_on),
+              title: const Text('Delivery Address'),
               onTap: () {},
             ),
             ListTile(
-              leading: const Icon(Icons.workspace_premium),
-              title: const Text('Premium'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout_outlined),
-              title: const Text('Logout'),
+              leading: const Icon(Icons.payment),
+              title: const Text('Payment Methods'),
               onTap: () {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
@@ -85,14 +85,23 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.mail),
+              title: const Text('Contact Us'),
+              onTap: () {},
+            ),
+            ListTile(
               leading: const Icon(CupertinoIcons.settings),
               title: const Text('Settings'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.help_center),
+              title: const Text('Help & FAQs'),
               onTap: () {},
             ),
             const SizedBox(
               height: 20,
             ),
-            const Divider(),
           ],
         ),
       ),

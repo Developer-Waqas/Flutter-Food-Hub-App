@@ -354,6 +354,9 @@ class BurgerScreen extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),

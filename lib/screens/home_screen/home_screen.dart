@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/components/custom_text_feild/custom_text_feild.dart';
-import 'package:food_hub_app/components/drawer/drawer.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/screens/burger_screen/burger_screen.dart';
-
-import '../../utilities/routes_name/routes_name.dart';
+import 'package:food_hub_app/screens/donut_screen/donut_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,12 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     const BurgerScreen(),
-    const Text("Text 1"),
-    const Text("Text 2"),
-    const Text("Text 3"),
-    const Text("Text 4"),
-    const Text("Text 5"),
-    const Text("Text 6"),
+    const DonutScreen(),
+    const Text("Pizza"),
+    const Text("Mexican"),
+    const Text("Asian"),
+    const Text("Fries"),
   ];
 
   int selectedTabIndex = 0;

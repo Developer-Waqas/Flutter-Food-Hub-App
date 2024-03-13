@@ -3,8 +3,8 @@ import 'package:food_hub_app/components/my_container/my_container.dart';
 
 import '../../constants/app_colors/app_color.dart';
 
-class BurgerScreen extends StatelessWidget {
-  const BurgerScreen({super.key});
+class DonutScreen extends StatelessWidget {
+  const DonutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,46 +12,46 @@ class BurgerScreen extends StatelessWidget {
     ///Restaurant List====================================
     List<Map<String, dynamic>> dataList = [
       {
-        "name": "McDonald's Burgers",
-        "image": "img_mcdonals_burgers.png",
-        "time": "8-10 mints",
-        "rating": 4.5,
+        "name": "Dikin' Donuts",
+        "image": "img_dikin_donut.png",
+        "time": "5 mints",
+        "rating": 4.9,
       },
       {
-        "name": "Burger King",
-        "image": "img_burger_king.png",
-        "time": "8-13 mints",
-        "rating": 4.3,
+        "name": "Donut Palace Donuts",
+        "image": "img_donut_palace.png",
+        "time": "8 mints",
+        "rating": 4.2,
       },
       {
-        "name": "HamBurger",
-        "image": "img_in_n_out.png",
-        "time": "10-15 mints",
-        "rating": 4.7,
-      }
+        "name": "Yum Yum Donuts",
+        "image": "img_yum_yum_donut.png",
+        "time": "13 mints",
+        "rating": 4.6,
+      },
     ];
 
     ///Popular Burgers==============================
     List<Map<String, dynamic>> dataList2 = [
       {
-        "name": "Zinger Burger",
-        "image": "img_zinger_burger.png",
+        "name": "Sprinkle Donut",
+        "image": "img_sprinkle_donut.png",
         "price": 5.8,
       },
       {
-        "name": "Egg Burger",
-        "image": "img_egg_burger.png",
-        "price": 4.2,
+        "name": "Glazed Donut",
+        "image": "img_glazed_donut.png",
+        "price": 5.0,
       },
       {
-        "name": "HamBurger",
-        "image": "img_hamburger.png",
-        "price": 5.4,
+        "name": "Cronut Donut",
+        "image": "img_cronut_donut.png",
+        "price": 5.5,
       },
       {
-        "name": "Angus Burger",
-        "image": "img_angus_burger.png",
-        "price": 5.6,
+        "name": "Cruller Donut",
+        "image": "img_cruller_donut.png",
+        "price": 4.8,
       },
     ];
 
@@ -143,14 +143,14 @@ class BurgerScreen extends StatelessWidget {
                                         horizontal: 14),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           width: 75,
                                           height: 28.07,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(100),
+                                            BorderRadius.circular(100),
                                             color: white,
                                           ),
                                           child: Padding(
@@ -158,7 +158,7 @@ class BurgerScreen extends StatelessWidget {
                                                 horizontal: 5),
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
+                                              MainAxisAlignment.spaceAround,
                                               children: [
                                                 Text(
                                                   '${dataList[index]['rating']}',
@@ -208,7 +208,7 @@ class BurgerScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 14),
+                              const EdgeInsets.symmetric(horizontal: 14),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -225,11 +225,11 @@ class BurgerScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         children: [
                                           Icon(
                                             Icons.delivery_dining,
@@ -274,11 +274,11 @@ class BurgerScreen extends StatelessWidget {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.start,
                                     children: [
-                                      MyContainer(text: 'BURGER'),
-                                      MyContainer(text: 'CHICKEN'),
-                                      MyContainer(text: 'FAST FOOD'),
+                                      MyContainer(text: 'SWEATS'),
+                                      const SizedBox(width: 15,),
+                                      MyContainer(text: 'DONUTS'),
                                     ],
                                   ),
                                 ],

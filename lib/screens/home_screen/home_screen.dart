@@ -4,6 +4,7 @@ import 'package:food_hub_app/components/custom_text_feild/custom_text_feild.dart
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/screens/burger_screen/burger_screen.dart';
+import 'package:food_hub_app/screens/cake_screen/cake_screen.dart';
 import 'package:food_hub_app/screens/donut_screen/donut_screen.dart';
 import 'package:food_hub_app/screens/pizza_screen/pizza_screen.dart';
 
@@ -29,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
       "images": "img_pizza_logo.png",
     },
     {
-      "name": "Mexican",
-      "images": "img_mexican_logo.png",
+      "name": "Cakes",
+      "images": "img_cake_logo.png",
     },
     {
       "name": "Asian",
@@ -46,10 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const BurgerScreen(),
     const DonutScreen(),
     const PizzaScreen(),
-    const Center(child: Text("COMING SOON...",style: TextStyle(
-      fontFamily: 'Phosphate',
-      fontSize: 35,
-    ),)),
+    const CakeScreen(),
     const Center(child: Text("COMING SOON...",style: TextStyle(
       fontFamily: 'Phosphate',
       fontSize: 35,

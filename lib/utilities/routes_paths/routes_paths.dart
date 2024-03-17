@@ -3,6 +3,7 @@ import 'package:food_hub_app/screens/forgot_password_screen/forgot_password_scre
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
 import 'package:food_hub_app/screens/login_screen/login_screen.dart';
 import 'package:food_hub_app/screens/main_screen/main_screen.dart';
+import 'package:food_hub_app/screens/phone_no_screen/reg_phone_no_screen.dart';
 import 'package:food_hub_app/screens/pin_code_screen/pin_code_screen.dart';
 import 'package:food_hub_app/screens/reset_password_screen/reset_password_screen.dart';
 import 'package:food_hub_app/screens/signup_screen/signup_screen.dart';
@@ -18,7 +19,7 @@ class RoutesPaths {
       case RoutesName.welcomeScreen:
         return MaterialPageRoute(builder: (context) => const WelcomeScreen());
       case RoutesName.mainScreen:
-        return MaterialPageRoute(builder: (context) =>  MainScreen());
+        return MaterialPageRoute(builder: (context) => MainScreen());
       case RoutesName.loginScreen:
         return MaterialPageRoute(builder: (context) => LoginScreen());
       case RoutesName.signupScreen:
@@ -29,11 +30,15 @@ class RoutesPaths {
         return MaterialPageRoute(builder: (context) => PinCodeScreen());
       case RoutesName.resetPassword:
         return MaterialPageRoute(builder: (context) => ResetPassword());
+      case RoutesName.phoneNoScreen:
+        return MaterialPageRoute(builder: (context) => PhoneNumberScreen());
     }
-    return MaterialPageRoute(builder: (context) => const Scaffold(
-      body: Center(
-        child: Text('Errors'),
+    return MaterialPageRoute(
+      builder: (context) => const Scaffold(
+        body: Center(
+          child: Text('Errors'),
+        ),
       ),
-    ));
+    );
   }
 }

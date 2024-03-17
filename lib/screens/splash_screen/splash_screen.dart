@@ -1,8 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:food_hub_app/utilities/firebase_services/splash_services.dart';
 
 import '../../utilities/routes_name/routes_name.dart';
 
@@ -15,31 +14,12 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-
+   SplashServices splashScreen = SplashServices();
   ///init state function==============
   void initState() {
     super.initState();
+    splashScreen.isLogin(context);
 
-    isSignUp();
-  }
-
-  ///data loading function===========================
-  void isSignUp() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-
-    bool isSignUp = sp.getBool('isSignUp') ?? false;
-    bool isLogin = sp.getBool('isLogin') ?? false;
-
-    ///page routing conditions=================================
-    if (isSignUp == true || isLogin == true) {
-      Timer(const Duration(seconds: 3), () {
-        Navigator.pushNamedAndRemoveUntil(context, RoutesName.mainScreen, (route) => false);
-      });
-    } else {
-      Timer(const Duration(seconds: 3), () {
-        Navigator.pushNamedAndRemoveUntil(context, RoutesName.welcomeScreen, (route) => false);
-      });
-    }
   }
 
   @override

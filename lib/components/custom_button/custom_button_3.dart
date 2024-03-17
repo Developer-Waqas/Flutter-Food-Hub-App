@@ -3,17 +3,18 @@ import 'package:food_hub_app/constants/app_colors/app_color.dart';
 
 class CustomButton3 extends StatelessWidget {
   double height;
-  double width;
+  double? width;
   Color color;
   BorderRadiusGeometry? borderRadius;
   String text;
   TextStyle? style;
   BoxBorder? border;
   void Function()? onTap;
+  bool loading;
 
   CustomButton3({
     super.key,
-    required this.width,
+    this.width,
     required this.height,
     this.borderRadius,
     required this.color,
@@ -21,6 +22,7 @@ class CustomButton3 extends StatelessWidget {
     this.style,
     this.border,
     required this.onTap,
+    this.loading = false,
   });
 
   @override
@@ -36,10 +38,12 @@ class CustomButton3 extends StatelessWidget {
           border: border,
         ),
         child: Center(
-          child: Text(
-            text,
-            style: style,
-          ),
+          child: loading
+              ? const CircularProgressIndicator(color: Colors.white,)
+              : Text(
+                  text,
+                  style: style,
+                ),
         ),
       ),
     );

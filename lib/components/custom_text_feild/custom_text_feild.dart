@@ -6,6 +6,10 @@ class CustomTextField extends StatelessWidget {
   Widget? suffixIcon;
   Widget? prefixIcon;
   Color? fillColor;
+  bool obscureText;
+  TextEditingController? controller;
+  String? Function(String?)? validator;
+  TextInputType? keyboardType;
 
   CustomTextField({
     super.key,
@@ -13,11 +17,17 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.fillColor,
+    this.controller,
+    this.validator,
+    this.obscureText = false,
+    this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      keyboardType: keyboardType,
       style: const TextStyle(
           fontFamily: 'SofiaRegular', color: Color(0xff9796A1)),
       decoration: InputDecoration(
@@ -40,6 +50,9 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
       ),
+      obscureText: obscureText,
+      controller: controller,
+      validator: validator,
     );
   }
 }

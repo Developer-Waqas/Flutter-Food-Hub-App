@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../components/custom_button/custom_button_3.dart';
 import '../../components/custom_text_feild/custom_text_feild.dart';
@@ -16,16 +16,46 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _auth = FirebaseAuth.instance;
+
   TextEditingController emailController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  login() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString('email', emailController.text.toString());
-    sp.setBool('isLogin', true);
+  loginUser() {
+    if (formKey.currentState!.validate()) {
+      setState(() {
+        loading = true;
+      });
+      _auth
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text)
+          .then((value) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, RoutesName.mainScreen, (route) => false);
+      }).onError((error, stackTrace) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              error.toString(),
+            ),
+          ),
+        );
+      });
+    }
+  }
+
+  bool loading = false;
+
+  ///hide password
+  bool _isHidden = true;
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 
   @override
@@ -87,7 +117,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
                     hintText: 'Type E-mail',
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter E-mail';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 15,
@@ -103,11 +142,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.text,
+                    controller: passwordController,
                     hintText: 'Type Password',
+                    obscureText: _isHidden,
                     suffixIcon: InkWell(
-                      onTap: () {},
-                      child: const Icon(CupertinoIcons.eye_slash),
+                      onTap: _togglePasswordView,
+                      child: Icon(
+                        _isHidden
+                            ? CupertinoIcons.eye
+                            : CupertinoIcons.eye_slash,
+                      ),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter password';
+                      } else if (value.length < 6) {
+                        return 'Password should greater than 6 characters';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 10,
@@ -142,13 +197,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontFamily: 'SofiaMedium',
                   color: white,
                 ),
-                onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    RoutesName.mainScreen,
-                    (route) => false,
-                  );
-                },
+                loading: loading,
+                onTap: loginUser,
                 borderRadius: BorderRadius.circular(28.41),
               ),
             ),

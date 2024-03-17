@@ -9,11 +9,6 @@ import '../../constants/app_styles/app_style.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
-  welcome() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setBool('welcome', true);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,10 +203,10 @@ class WelcomeScreen extends StatelessWidget {
                   onTap: (){
                     Navigator.pushNamedAndRemoveUntil(context, RoutesName.signupScreen, (route) => false);
                   },
-                  width: 312,
+                  width: 325,
                   height: 54,
                   color: black12,
-                  text: 'Start with E-mail',
+                  text: 'Start with E-mail or Phone Number',
                   style: TextStyle(
                     fontFamily: 'SofiaMedium',
                     color: milky,

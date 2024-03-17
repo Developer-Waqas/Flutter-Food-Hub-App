@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../utilities/routes_name/routes_name.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  MyDrawer({super.key});
 
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -98,6 +100,15 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.help_center),
               title: const Text('Help & FAQs'),
               onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () {
+                auth.signOut().then((value) {
+                  Navigator.pushNamedAndRemoveUntil(context, RoutesName.loginScreen, (route) => false);
+                });
+              },
             ),
             const SizedBox(
               height: 20,

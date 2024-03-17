@@ -7,4 +7,6 @@ class RoutesName {
   static const forgotPassword = 'forgot_password_screen';
   static const pinCodeScreen = 'pin_code_screen';
   static const resetPassword = 'reset_password_screen';
+  static const phoneNoScreen = 'phone_no_screen';
+  static const verificationCodeScreen = 'verification_code_screen';
 }

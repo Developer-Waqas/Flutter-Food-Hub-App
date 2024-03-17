@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      drawer: const MyDrawer(),
+      drawer:  MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         iconSize: 30,

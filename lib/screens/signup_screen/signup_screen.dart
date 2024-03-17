@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:food_hub_app/components/custom_button/custom_button_3.dart';
 import 'package:food_hub_app/components/custom_text_feild/custom_text_feild.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/utilities/routes_name/routes_name.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,19 +16,37 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController emailController = TextEditingController();
+  final emailController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  final passwordController = TextEditingController();
 
-  TextEditingController nameController = TextEditingController();
+  final nameController = TextEditingController();
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
-  signUp() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString('name', nameController.text.toString() );
-    sp.setString('email', emailController.text.toString());
-    sp.setBool('isSignUp', true);
+  signUpUser() async {
+    setState(() {
+      loading = true;
+    });
+
+    final _auth = FirebaseAuth.instance;
+    _auth
+        .createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((value) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, RoutesName.mainScreen, (route) => false);
+    });
+  }
+
+  bool loading = false;
+  ///hide password
+  bool _isHidden = true;
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 
   @override
@@ -90,7 +109,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.name,
                     hintText: 'Type Full Name',
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter Name';
+                      } else if (value.length < 3) {
+                        return 'Name should greater than 3 characters';
+                      }else if (value.length > 20) {
+                        return 'Name should Less than 20 characters';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 10,
@@ -106,7 +137,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
                     hintText: 'Type E-mail',
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter E-mail';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 15,
@@ -122,16 +162,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.text,
+                    controller: passwordController,
                     hintText: 'Type Password',
+                    obscureText: _isHidden,
                     suffixIcon: InkWell(
-                      onTap: () {},
-                      child: const Icon(CupertinoIcons.eye_slash),
+                      onTap: _togglePasswordView,
+                      child: Icon(
+                        _isHidden
+                            ? CupertinoIcons.eye
+                            : CupertinoIcons.eye_slash,
+                      ),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter password';
+                      } else if (value.length < 6) {
+                        return 'Password should greater than 6 characters';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Center(
               child: CustomButton3(
                 width: 248,
@@ -142,15 +200,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fontFamily: 'SofiaMedium',
                   color: white,
                 ),
-                onTap: () {},
+                loading: loading,
+                onTap: signUpUser,
                 borderRadius: BorderRadius.circular(28.41),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 Text(
                   "Already have an Account?",
                   style: TextStyle(
@@ -161,7 +221,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context, RoutesName.loginScreen, (route) => false);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, RoutesName.loginScreen, (route) => false);
                   },
                   child: Text(
                     'Login',
@@ -174,7 +235,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 )
               ],
             ),
-            const SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: Container(
+                height: 50,
+                width: 248,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(color: splashColor),
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, RoutesName.phoneNoScreen, (route) => false);
+                  },
+                  child: Text(
+                    'Phone Number',
+                    style: TextStyle(
+                      fontFamily: 'SofiaMedium',
+                      fontSize: 17,
+                      color: splashColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -250,7 +340,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       image: const DecorationImage(
                           scale: 3,
                           image:
-                          AssetImage('assets/images/img_google_logo.png')),
+                              AssetImage('assets/images/img_google_logo.png')),
                     ),
                   ),
                 ),
@@ -272,7 +362,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       image: const DecorationImage(
                           scale: 15,
                           image:
-                          AssetImage('assets/images/img_apple_logo.png')),
+                              AssetImage('assets/images/img_apple_logo.png')),
                     ),
                   ),
                 ),

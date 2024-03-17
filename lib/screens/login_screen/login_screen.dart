@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 
 import '../../components/custom_button/custom_button_3.dart';
 import '../../components/custom_text_feild/custom_text_feild.dart';
@@ -25,7 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   loginUser() {
-    if (formKey.currentState!.validate()) {
       setState(() {
         loading = true;
       });
@@ -36,15 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushNamedAndRemoveUntil(
             context, RoutesName.mainScreen, (route) => false);
       }).onError((error, stackTrace) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              error.toString(),
-            ),
-          ),
-        );
+        ToastMessages().toastMessages(error.toString());
+        setState(() {
+          loading = false;
+        });
       });
-    }
   }
 
   bool loading = false;

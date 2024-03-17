@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 import 'package:food_hub_app/screens/phone_no_screen/verify_code_screen/verify_code_screen.dart';
 
 import '../../components/custom_button/custom_button_3.dart';
@@ -39,13 +40,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
           });
         },
         verificationFailed: (FirebaseAuthException exception) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                exception.toString(),
-              ),
-            ),
-          );
+         ToastMessages().toastMessages(exception.toString());
         },
         codeSent: (String verificationID, int? token) {
           Navigator.pushAndRemoveUntil(
@@ -120,7 +115,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                     height: 40,
                   ),
                   Text(
-                    'Registration with Phone Number',
+                    'Sign Up with Phone Number',
                     style: headingStyle5,
                   ),
                   const SizedBox(

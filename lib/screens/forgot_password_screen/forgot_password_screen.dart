@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 
 import '../../components/custom_button/custom_button_3.dart';
 import '../../components/custom_text_feild/custom_text_feild.dart';
@@ -8,17 +9,38 @@ import '../../constants/app_colors/app_color.dart';
 import '../../constants/app_styles/app_style.dart';
 import '../../utilities/routes_name/routes_name.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   ForgotPassword({super.key});
 
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
   TextEditingController emailController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  login() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString('email', emailController.text.toString());
-    sp.setBool('isLogin', true);
+  forgotUser() {
+    setState(() {
+      loading = true;
+    });
+
+    FirebaseAuth.instance
+        .sendPasswordResetEmail(email: emailController.text)
+        .then((value) {
+      ToastMessages()
+          .toastMessages('We have send link to your E-mail to reset password!');
+Navigator.pushNamedAndRemoveUntil(context, RoutesName.loginScreen, (route) => false);
+    }).onError((error, stackTrace) {
+      ToastMessages().toastMessages(error.toString());
+      setState(() {
+        loading = false;
+      });
+    });
   }
+
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +66,7 @@ class ForgotPassword extends StatelessWidget {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.popAndPushNamed(
-                        context, RoutesName.loginScreen);
+                    Navigator.popAndPushNamed(context, RoutesName.loginScreen);
                   },
                   icon: Icon(
                     CupertinoIcons.back,
@@ -80,12 +101,16 @@ class ForgotPassword extends StatelessWidget {
                     height: 8,
                   ),
                   CustomTextField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
                     hintText: 'Type E-mail',
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),
@@ -96,20 +121,18 @@ class ForgotPassword extends StatelessWidget {
               child: CustomButton3(
                 width: 248,
                 height: 60,
+                loading: loading,
                 color: splashColor,
                 text: 'SEND REQUEST',
                 style: TextStyle(
                   fontFamily: 'SofiaMedium',
                   color: white,
                 ),
-                onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(context, RoutesName.pinCodeScreen, (route) => false);
-                },
+                onTap: forgotUser,
                 borderRadius: BorderRadius.circular(28.41),
               ),
             ),
             const SizedBox(height: 10),
-
           ],
         ),
       ),

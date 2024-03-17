@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/components/custom_button/custom_button_3.dart';
+import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../constants/app_colors/app_color.dart';
@@ -27,7 +28,6 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
   final otpController = TextEditingController();
 
   verifyUser() async {
-    if (formKey.currentState!.validate()) {
       setState(() {
         loading = true;
       });
@@ -46,15 +46,9 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
         setState(() {
           loading = false;
         });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              e.toString(),
-            ),
-          ),
-        );
+       ToastMessages().toastMessages(e.toString());
       }
-    }
+
   }
 
   bool loading = false;
@@ -62,7 +56,9 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: white,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Image(
             fit: BoxFit.fill,
@@ -162,17 +158,19 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: CustomButton3(
-              height: 50,
-              width: 250,
-              borderRadius: BorderRadius.circular(28.41),
-              color: splashColor,
-              text: 'VERIFY',
-              onTap: verifyUser,
-              loading: loading,
-              style: TextStyle(
-                fontFamily: 'SofiaMedium',
-                color: white,
+            child: Center(
+              child: CustomButton3(
+                height: 50,
+                width: 250,
+                borderRadius: BorderRadius.circular(28.41),
+                color: splashColor,
+                text: 'VERIFY',
+                onTap: verifyUser,
+                loading: loading,
+                style: TextStyle(
+                  fontFamily: 'SofiaMedium',
+                  color: white,
+                ),
               ),
             ),
           ),

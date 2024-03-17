@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:food_hub_app/components/custom_button/custom_button_3.dart';
 import 'package:food_hub_app/components/custom_text_feild/custom_text_feild.dart';
+import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/utilities/routes_name/routes_name.dart';
@@ -36,6 +37,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         .then((value) {
       Navigator.pushNamedAndRemoveUntil(
           context, RoutesName.mainScreen, (route) => false);
+    }).onError((error, stackTrace) {
+     ToastMessages().toastMessages(error.toString());
+      setState(() {
+        loading = false;
+      });
     });
   }
 
@@ -236,12 +242,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             Center(
               child: Container(
-                height: 50,
-                width: 248,
+                height: 45,
+                width: 268,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   border: Border.all(color: splashColor),

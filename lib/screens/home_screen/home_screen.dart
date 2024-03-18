@@ -7,6 +7,7 @@ import 'package:food_hub_app/screens/burger_screen/burger_screen.dart';
 import 'package:food_hub_app/screens/cake_screen/cake_screen.dart';
 import 'package:food_hub_app/screens/donut_screen/donut_screen.dart';
 import 'package:food_hub_app/screens/pizza_screen/pizza_screen.dart';
+import 'package:food_hub_app/screens/shawarma_screen/shawarma_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,10 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const DonutScreen(),
     const PizzaScreen(),
     const CakeScreen(),
-    const Center(child: Text("COMING SOON...",style: TextStyle(
-      fontFamily: 'Phosphate',
-      fontSize: 35,
-    ),)),
+    const ShawarmaScreen(),
     const Center(child: Text("COMING SOON...",style: TextStyle(
       fontFamily: 'Phosphate',
       fontSize: 35,

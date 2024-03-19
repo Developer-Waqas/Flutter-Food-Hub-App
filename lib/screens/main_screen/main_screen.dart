@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/screens/address_screen/address_screen.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
-import 'package:food_hub_app/screens/shopping_cart_screen/shopping_cart_screen.dart';
+import 'package:food_hub_app/screens/shopping_cart_veiw/shopping_cart_veiw.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 import '../../components/drawer/drawer.dart';
 import '../../constants/app_colors/app_color.dart';
@@ -19,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
   List _pages = [
     HomeScreen(),
     const AddressScreen(),
-    const ShoppingCart(),
+    const ShoppingCartView(),
     const Center(
       child: Text("Favorite"),
     ),
@@ -68,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
         onTap: (index) => _changeTab(index),
         selectedItemColor: splashColor,
         unselectedItemColor: Colors.grey,
-        items: const [
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.explore),
             label: "Explore",
@@ -78,7 +80,16 @@ class _MainScreenState extends State<MainScreen> {
             label: "Delivery Address",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
+            icon: PersistentShoppingCart().showCartItemCountWidget(cartItemCountWidgetBuilder: (itemCount){
+              return Badge(
+                backgroundColor: Colors.yellow,
+                label: Text(itemCount.toString(),style: TextStyle(
+                  fontFamily: 'SofiaMedium',
+                  color: black,
+                ),),
+                child: Icon(CupertinoIcons.bag_fill,color: splashColor,),
+              );
+            }),
             label: "Cart",
           ),
           BottomNavigationBarItem(

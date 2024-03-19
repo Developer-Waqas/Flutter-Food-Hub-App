@@ -43,6 +43,7 @@ dependencies:
   firebase_core_platform_interface: ^5.0.0
   fluttertoast: ^8.2.4
   google_sign_in: ^6.2.1
+  persistent_shopping_cart: ^0.0.7
 
 dev_dependencies:
   flutter_test:

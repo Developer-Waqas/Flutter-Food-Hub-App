@@ -35,12 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
       "images": "img_cake_logo.png",
     },
     {
-      "name": "Asian",
-      "images": "img_asian_logo.png",
-    },
-    {
-      "name": "Fries",
-      "images": "img_fries_logo.png",
+      "name": "Shawarma",
+      "images": "img_shawarma_logo.png",
     },
   ];
 
@@ -50,10 +46,6 @@ class _HomeScreenState extends State<HomeScreen> {
     const PizzaScreen(),
     const CakeScreen(),
     const ShawarmaScreen(),
-    const Center(child: Text("COMING SOON...",style: TextStyle(
-      fontFamily: 'Phosphate',
-      fontSize: 35,
-    ),)),
   ];
 
   int selectedTabIndex = 0;
@@ -128,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           height: 98,
-                          width: 58.57,
+                          width: 65.57,
                           decoration: BoxDecoration(
                               color: selectedTabIndex == index
                                   ? splashColor

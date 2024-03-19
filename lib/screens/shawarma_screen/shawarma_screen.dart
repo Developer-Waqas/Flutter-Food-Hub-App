@@ -33,13 +33,13 @@ class ShawarmaScreen extends StatelessWidget {
         "price": 6.5,
       },
       {
-        "name": "BaalBek Shawarma",
+        "name": "kebab Shawarma",
         "image": "img_baalbek_shawarma.png",
         "price": 4.8,
       },
       {
-        "name": "Turkish Shawarma",
-        "image": "img_hamburger.png",
+        "name": "Turkey Shawarma",
+        "image": "img_turkish_shawarma.png",
         "price": 6.3,
       },
     ];
@@ -76,7 +76,7 @@ class ShawarmaScreen extends StatelessWidget {
                     Text(
                       'View All',
                       style: TextStyle(
-                          color: splashColor, fontFamily: 'SofiaRegular'),
+                          color: splashColor, fontFamily: 'SofiaRegular',),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
@@ -268,7 +268,7 @@ class ShawarmaScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                     children: [
-                                      MyContainer(text: 'BURGER'),
+                                      MyContainer(text: 'CHEESE'),
                                       MyContainer(text: 'CHICKEN'),
                                       MyContainer(text: 'FAST FOOD'),
                                     ],
@@ -333,14 +333,13 @@ class ShawarmaScreen extends StatelessWidget {
                                   height: 100,
                                   fit: BoxFit.contain,
                                 ),
-
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
                                   bottom: 8,
                                 ),
                                 child: Container(
-                                  alignment: Alignment.centerLeft,
+                                  alignment: Alignment.topCenter,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -349,7 +348,7 @@ class ShawarmaScreen extends StatelessWidget {
                                         style: TextStyle(
                                           fontFamily: 'SofiaSemiBold',
                                           color: black,
-                                          fontSize: 15,
+                                          fontSize: 12,
                                         ),
                                       ),
                                       Text(

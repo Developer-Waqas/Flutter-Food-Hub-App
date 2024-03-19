@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/constants/app_colors/app_color.dart';
 
 import '../../utilities/routes_name/routes_name.dart';
 
@@ -8,9 +9,11 @@ class MyDrawer extends StatelessWidget {
   MyDrawer({super.key});
 
   final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: white,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
@@ -39,9 +42,9 @@ class MyDrawer extends StatelessWidget {
               ),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(12),
-                    topLeft: Radius.circular(12),
-                  )),
+                topRight: Radius.circular(12),
+                topLeft: Radius.circular(12),
+              )),
 
               ///profile picture=========================
               currentAccountPicture: Container(
@@ -78,13 +81,7 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.payment),
               title: const Text('Payment Methods'),
-              onTap: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  RoutesName.loginScreen,
-                      (route) => false,
-                );
-              },
+              onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.mail),
@@ -106,7 +103,8 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Logout'),
               onTap: () {
                 auth.signOut().then((value) {
-                  Navigator.pushNamedAndRemoveUntil(context, RoutesName.loginScreen, (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, RoutesName.loginScreen, (route) => false);
                 });
               },
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/screens/address_screen/address_screen.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
+import 'package:food_hub_app/screens/shopping_cart_screen/shopping_cart_screen.dart';
 
 import '../../components/drawer/drawer.dart';
 import '../../constants/app_colors/app_color.dart';
@@ -16,12 +18,8 @@ class _MainScreenState extends State<MainScreen> {
 
   List _pages = [
     HomeScreen(),
-    const Center(
-      child: Text("Address"),
-    ),
-    const Center(
-      child: Text("Cart"),
-    ),
+    const AddressScreen(),
+    const ShoppingCart(),
     const Center(
       child: Text("Favorite"),
     ),

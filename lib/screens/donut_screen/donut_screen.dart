@@ -17,13 +17,13 @@ class DonutScreen extends StatelessWidget {
       {
         "name": "Dikin' Donuts",
         "image": "img_dikin_donut.png",
-        "time": "5 mints",
+        "time": "7 mints",
         "rating": 4.9,
       },
       {
         "name": "Donut Palace Donuts",
         "image": "img_donut_palace.png",
-        "time": "8 mints",
+        "time": "10 mints",
         "rating": 4.2,
       },
       {

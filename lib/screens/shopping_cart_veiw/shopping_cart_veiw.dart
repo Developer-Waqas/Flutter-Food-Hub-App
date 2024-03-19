@@ -36,7 +36,7 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
                           fit: BoxFit.contain,
                           borderRadius: 20,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
@@ -125,11 +125,13 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
                     ),
                   ),
                 ),
-                showEmptyCartMsgWidget: Text(
-                  'Cart is empty',
-                  style: TextStyle(
-                    fontFamily: 'Phosphate',
-                    fontSize: 50,
+                showEmptyCartMsgWidget: const Center(
+                  child: Text(
+                    'Cart is empty',
+                    style: TextStyle(
+                      fontFamily: 'SofiaSemiBold',
+                      fontSize: 50,
+                    ),
                   ),
                 ),
               ),
@@ -157,7 +159,7 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
                 ),
               );
             }),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],

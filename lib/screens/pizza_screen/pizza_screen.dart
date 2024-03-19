@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/components/asset_image_widget/asset_image_widget.dart';
+import 'package:food_hub_app/components/item_model/item_model.dart';
 import 'package:food_hub_app/components/my_container/my_container.dart';
+import 'package:persistent_shopping_cart/model/cart_model.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 import '../../constants/app_colors/app_color.dart';
 
@@ -8,51 +12,54 @@ class PizzaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     ///Restaurant List====================================
     List<Map<String, dynamic>> dataList = [
       {
         "name": "Pizza Hut",
         "image": "img_pizza_hut.png",
         "time": "7 mints",
-        "rating": 4.9,
+        "rating": 4.7,
       },
       {
         "name": "Domino's Pizza",
         "image": "img_domino_pizza.png",
-        "time": "8 mints",
-        "rating": 4.2,
+        "time": "10 mints",
+        "rating": 4.0,
       },
       {
         "name": "Blaze Pizza",
         "image": "img_blaze_pizza.png",
         "time": "13 mints",
-        "rating": 4.6,
+        "rating": 4.4,
       },
     ];
 
     ///Popular Burgers==============================
-    List<Map<String, dynamic>> dataList2 = [
-      {
-        "name": "Cheese Pizza",
-        "image": "img_cheese_pizza.png",
-        "price": 6.8,
-      },
-      {
-        "name": "Veggie Pizza",
-        "image": "img_veggie_pizza.png",
-        "price": 6.4,
-      },
-      {
-        "name": "BBG Pizza",
-        "image": "img_bbg_pizza.png",
-        "price": 5.5,
-      },
-      {
-        "name": "Greek Pizza",
-        "image": "img_greek_pizza.png",
-        "price": 4.8,
-      },
+    List<ItemModel> itemList = [
+      const ItemModel(
+        productID: '9',
+        productName: 'Cheese Pizza',
+        productThumbnail: 'assets/images/img_cheese_pizza.png',
+        unitPrice: 40,
+      ),
+      const ItemModel(
+        productID: '10',
+        productName: 'Veggie Pizza',
+        productThumbnail: 'assets/images/img_veggie_pizza.png',
+        unitPrice: 45,
+      ),
+      const ItemModel(
+        productID: '11',
+        productName: 'BBG Pizza',
+        productThumbnail: 'assets/images/img_bbg_pizza.png',
+        unitPrice: 35,
+      ),
+      const ItemModel(
+        productID: '12',
+        productName: 'Greek Pizza',
+        productThumbnail: 'assets/images/img_greek_pizza.png',
+        unitPrice: 38,
+      ),
     ];
 
     return SingleChildScrollView(
@@ -279,9 +286,9 @@ class PizzaScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                     children: [
+                                      MyContainer(text: 'BURGER'),
+                                      MyContainer(text: 'CHICKEN'),
                                       MyContainer(text: 'FAST FOOD'),
-                                      MyContainer(text: 'TASTY'),
-                                      MyContainer(text: 'DELICIOUS'),
                                     ],
                                   ),
                                 ],
@@ -294,7 +301,7 @@ class PizzaScreen extends StatelessWidget {
                   }),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14.5),
+              padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -310,16 +317,18 @@ class PizzaScreen extends StatelessWidget {
                     height: 5,
                   ),
                   GridView.builder(
-                    itemCount: dataList2.length,
+                    itemCount: itemList.length,
                     shrinkWrap: true,
                     primary: false,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisExtent: 160,
+                      mainAxisExtent: 210,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index) {
+                      final item = itemList[index];
                       return GestureDetector(
                         onTap: () {},
                         child: Container(
@@ -336,43 +345,83 @@ class PizzaScreen extends StatelessWidget {
                               ]),
                           child: Column(
                             children: [
-                              Container(
-                                margin: const EdgeInsets.all(10),
-                                child: Image.asset(
-                                  "assets/images/${dataList2[index]['image']}",
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.contain,
-                                ),
-
+                              AssetImageWidget(
+                                imagePath: item.productThumbnail,
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.contain,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  bottom: 8,
-                                ),
-                                child: Container(
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "${dataList2[index]['name']}",
-                                        style: TextStyle(
-                                          fontFamily: 'SofiaSemiBold',
-                                          color: black,
-                                          fontSize: 15,
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item.productName,
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 18,
+                                        fontFamily: 'SofiaSemiBold',
+                                      ),
+                                    ),
+                                    Text(
+                                      '\$${item.unitPrice}',
+                                      style: TextStyle(
+                                        color: grey,
+                                        fontSize: 15,
+                                        fontFamily: 'SofiaRegular',
+                                      ),
+                                    ),
+                                    PersistentShoppingCart()
+                                        .showAndUpdateCartItemWidget(
+                                      inCartWidget: Container(
+                                        height: 30,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          border:
+                                          Border.all(color: splashColor),
+                                          borderRadius:
+                                          BorderRadius.circular(50),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Remove',
+                                            style: TextStyle(
+                                                color: black,
+                                                fontFamily: 'SofiaMedium'),
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        '\$${dataList2[index]['price']}',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Sofia Regular',
-                                          color: grey2,
+                                      notInCartWidget: Container(
+                                        height: 30,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          color: splashColor,
+                                          borderRadius:
+                                          BorderRadius.circular(50),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Add to Cart',
+                                            style: TextStyle(
+                                                color: white,
+                                                fontFamily: 'SofiaMedium'),
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                      product: PersistentShoppingCartItem(
+                                        productId: item.productID,
+                                        productName: item.productName,
+                                        unitPrice: double.parse(
+                                            item.unitPrice.toString()),
+                                        quantity: 1,
+                                        productThumbnail: item.productThumbnail,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_hub_app/components/asset_image_widget/asset_image_widget.dart';
+import 'package:food_hub_app/components/item_model/item_model.dart';
 import 'package:food_hub_app/components/my_container/my_container.dart';
+import 'package:persistent_shopping_cart/model/cart_model.dart';
+import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 import '../../constants/app_colors/app_color.dart';
 
@@ -8,40 +12,42 @@ class CakeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     ///Restaurant List====================================
     List<Map<String, dynamic>> dataList = [
       {
         "name": "Loafology Cakes",
         "image": "img_loafology_cakes.png",
-        "time": "8-10 mints",
+        "time": "5 mints",
         "rating": 4.5,
       },
       {
         "name": "Bay Bakery Cakes",
         "image": "img_bay_cakes.png",
-        "time": "8-13 mints",
+        "time": "7 mints",
         "rating": 4.3,
       },
     ];
 
     ///Popular Burgers==============================
-    List<Map<String, dynamic>> dataList2 = [
-      {
-        "name": "Choc Cake",
-        "image": "img_choc_cake.png",
-        "price": 6.0,
-      },
-      {
-        "name": "Spongy Cake",
-        "image": "img_spongy_cake.png",
-        "price": 4.0,
-      },
-      {
-        "name": "Vanilla Cake",
-        "image": "img_vanilla_cake.png",
-        "price": 5.9,
-      },
+    List<ItemModel> itemList = [
+      const ItemModel(
+        productID: '13',
+        productName: 'Choc Cake',
+        productThumbnail: 'assets/images/img_choc_cake.png',
+        unitPrice: 40,
+      ),
+      const ItemModel(
+        productID: '14',
+        productName: 'Spongy Cake',
+        productThumbnail: 'assets/images/img_spongy_cake.png',
+        unitPrice: 42,
+      ),
+      const ItemModel(
+        productID: '15',
+        productName: 'Vanilla Cake',
+        productThumbnail: 'assets/images/img_vanilla_cake.png',
+        unitPrice: 48,
+      ),
     ];
 
     return SingleChildScrollView(
@@ -268,8 +274,8 @@ class CakeScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                     children: [
-                                      MyContainer(text: 'CAKES'),
-                                      MyContainer(text: 'BAKERY'),
+                                      MyContainer(text: 'BURGER'),
+                                      MyContainer(text: 'CHICKEN'),
                                       MyContainer(text: 'FAST FOOD'),
                                     ],
                                   ),
@@ -283,7 +289,7 @@ class CakeScreen extends StatelessWidget {
                   }),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14.5),
+              padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -299,16 +305,18 @@ class CakeScreen extends StatelessWidget {
                     height: 5,
                   ),
                   GridView.builder(
-                    itemCount: dataList2.length,
+                    itemCount: itemList.length,
                     shrinkWrap: true,
                     primary: false,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisExtent: 160,
+                      mainAxisExtent: 210,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index) {
+                      final item = itemList[index];
                       return GestureDetector(
                         onTap: () {},
                         child: Container(
@@ -325,43 +333,83 @@ class CakeScreen extends StatelessWidget {
                               ]),
                           child: Column(
                             children: [
-                              Container(
-                                margin: const EdgeInsets.all(10),
-                                child: Image.asset(
-                                  "assets/images/${dataList2[index]['image']}",
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.contain,
-                                ),
-
+                              AssetImageWidget(
+                                imagePath: item.productThumbnail,
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.contain,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  bottom: 8,
-                                ),
-                                child: Container(
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "${dataList2[index]['name']}",
-                                        style: TextStyle(
-                                          fontFamily: 'SofiaSemiBold',
-                                          color: black,
-                                          fontSize: 15,
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item.productName,
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 18,
+                                        fontFamily: 'SofiaSemiBold',
+                                      ),
+                                    ),
+                                    Text(
+                                      '\$${item.unitPrice}',
+                                      style: TextStyle(
+                                        color: grey,
+                                        fontSize: 15,
+                                        fontFamily: 'SofiaRegular',
+                                      ),
+                                    ),
+                                    PersistentShoppingCart()
+                                        .showAndUpdateCartItemWidget(
+                                      inCartWidget: Container(
+                                        height: 30,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          border:
+                                          Border.all(color: splashColor),
+                                          borderRadius:
+                                          BorderRadius.circular(50),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Remove',
+                                            style: TextStyle(
+                                                color: black,
+                                                fontFamily: 'SofiaMedium'),
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        '\$${dataList2[index]['price']}',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Sofia Regular',
-                                          color: grey2,
+                                      notInCartWidget: Container(
+                                        height: 30,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          color: splashColor,
+                                          borderRadius:
+                                          BorderRadius.circular(50),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Add to Cart',
+                                            style: TextStyle(
+                                                color: white,
+                                                fontFamily: 'SofiaMedium'),
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                      product: PersistentShoppingCartItem(
+                                        productId: item.productID,
+                                        productName: item.productName,
+                                        unitPrice: double.parse(
+                                            item.unitPrice.toString()),
+                                        quantity: 1,
+                                        productThumbnail: item.productThumbnail,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],

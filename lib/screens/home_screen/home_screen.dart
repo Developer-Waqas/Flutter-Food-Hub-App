@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:food_hub_app/components/custom_text_feild/custom_text_feild.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/screens/burger_screen/burger_screen.dart';
 import 'package:food_hub_app/screens/cake_screen/cake_screen.dart';
 import 'package:food_hub_app/screens/donut_screen/donut_screen.dart';
+import 'package:food_hub_app/screens/pasta_screen/pasta_screen.dart';
 import 'package:food_hub_app/screens/pizza_screen/pizza_screen.dart';
-import 'package:food_hub_app/screens/shawarma_screen/shawarma_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
       "images": "img_cake_logo.png",
     },
     {
-      "name": "Shawarma",
-      "images": "img_shawarma_logo.png",
+      "name": "Pasta",
+      "images": "img_pasta_logo.png",
     },
   ];
 
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const DonutScreen(),
     const PizzaScreen(),
     const CakeScreen(),
-    const ShawarmaScreen(),
+    const PastaScreen(),
   ];
 
   int selectedTabIndex = 0;
@@ -101,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+              ///horizantal listview of foods
               Container(
                 height: 132,
                 child: ListView.builder(
@@ -120,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           height: 98,
-                          width: 65.57,
+                          width: 58.57,
                           decoration: BoxDecoration(
                               color: selectedTabIndex == index
                                   ? splashColor

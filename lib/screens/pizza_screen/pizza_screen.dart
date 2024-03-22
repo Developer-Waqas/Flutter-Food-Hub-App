@@ -41,24 +41,28 @@ class PizzaScreen extends StatelessWidget {
         productName: 'Cheese Pizza',
         productThumbnail: 'assets/images/img_cheese_pizza.png',
         unitPrice: 40,
+        productDiscription: '"Cheese Pizza" invites readers on a timeless journey through the classic simplicity of one of the most beloved pizza varieties. With its golden crust, tangy tomato sauce, and generous layer of melted cheese, cheese pizza captures the essence of comfort and satisfaction in every slice. Follow the journey of cheese pizza as it emerges from the oven, its tantalizing aroma filling the air and beckoning diners near. Whether adorned with a blend of mozzarella, Parmesan, and Romano cheeses or featuring a creamy white sauce topped with rich Gouda or sharp cheddar, cheese pizza offers a delightful canvas for endless flavor variations. Perfect for any occasion, from family gatherings to late-night cravings, cheese pizza embodies the universal love for this timeless and irresistible dish. "Cheese Pizza" celebrates the joy of simplicity and the pleasure of indulging in a classic favorite that never goes out of style.',
       ),
       const ItemModel(
         productID: '10',
         productName: 'Veggie Pizza',
         productThumbnail: 'assets/images/img_veggie_pizza.png',
         unitPrice: 45,
+        productDiscription: '"Veggie Pizza" invites readers on a flavorful journey through the garden-fresh world of vegetarian cuisine, embodied in a delightful pizza creation. Bursting with vibrant colors and wholesome ingredients, veggie pizza celebrates the abundance of nature\'s bounty. Follow the journey of veggie pizza as it emerges from the ovens, adorned with a colorful array of toppings such as ripe tomatoes, crisp bell peppers, earthy mushrooms, sweet onions, and tender spinach, all nestled atop a bed of melted cheese and tangy tomato sauce. With its perfect harmony of flavors and textures, veggie pizza showcases the versatility and creativity of vegetarian cooking. Whether enjoyed as a light lunch or a satisfying dinner option, veggie pizza delights the palate and nourishes the body with every delicious bite. "Veggie Pizza" celebrates the beauty of plant-based ingredients and the joy of savoring a wholesome and satisfying meal.',
       ),
       const ItemModel(
         productID: '11',
         productName: 'BBG Pizza',
         productThumbnail: 'assets/images/img_bbg_pizza.png',
         unitPrice: 35,
+        productDiscription: '"BBQ Pizza" takes readers on a mouthwatering journey through the smoky and savory world of barbecue-infused pizza. This culinary delight combines the best of two beloved cuisines: Italian pizza and American barbecue. Follow along as BBQ pizza emerges from the fiery grills and ovens, adorned with tangy barbecue sauce, tender grilled meats like chicken or pork, caramelized onions, and gooey melted cheese. With its perfect balance of sweet, smoky, and savory flavors, BBQ pizza captures the essence of outdoor gatherings and cozy evenings around the grill. Whether enjoyed at a backyard barbecue or ordered from a favorite pizzeria, BBQ pizza satisfies cravings and brings people together with its irresistible aroma and bold taste. "BBQ Pizza" celebrates the joy of culinary fusion and the universal love for this indulgent and satisfying pizza variety.',
       ),
       const ItemModel(
         productID: '12',
         productName: 'Greek Pizza',
         productThumbnail: 'assets/images/img_greek_pizza.png',
         unitPrice: 38,
+        productDiscription: '"Greek Pizza" invites readers on a culinary odyssey through the vibrant flavors of Greece fused with the beloved classic, pizza. Bursting with Mediterranean ingredients and traditional Greek flair, Greek pizza offers a tantalizing twist on the traditional Italian dish. Follow the journey of Greek pizza as it emerges from the ovens of pizzerias, adorned with toppings like feta cheese, Kalamata olives, fresh tomatoes, and aromatic herbs. With its crisp crust and bold, savory flavors, Greek pizza embodies the essence of culinary fusion, bringing together the best of both worlds. Whether enjoyed as a slice on-the-go or savored as a hearty meal, Greek pizza delights the senses and transports diners to the sun-drenched shores of Greece. "Greek Pizza" celebrates the rich culinary heritage of Greece and the universal love for this innovative and mouthwatering pizza variety.',
       ),
     ];
 
@@ -350,6 +354,7 @@ class PizzaScreen extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                                 fit: BoxFit.contain,
+                                borderRadius: 20,
                               ),
                               const SizedBox(
                                 height: 10,

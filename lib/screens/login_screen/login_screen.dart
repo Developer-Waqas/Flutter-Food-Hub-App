@@ -17,14 +17,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  ///Firebase Auth Instance==========>>>>>>>>>>>>>>>>
   final _auth = FirebaseAuth.instance;
 
+  ///Controllers=====================
   TextEditingController emailController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
 
+  ///Key=================
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  ///UserLogin Function===============================
   loginUser() {
       setState(() {
         loading = true;
@@ -63,29 +68,38 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Image(
-              fit: BoxFit.fill,
-              image: AssetImage('assets/images/img.png'),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: Container(
-                height: 38,
-                width: 38,
-                decoration: BoxDecoration(
-                  color: white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.popAndPushNamed(context, RoutesName.signupScreen);
-                  },
-                  icon: Icon(
-                    CupertinoIcons.back,
-                    color: black,
+            Stack(
+              children: [
+                Image(
+                  image: AssetImage(
+                    'assets/images/img.png',
                   ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 22,
+                      top: 60
+                  ),
+                  child: Container(
+                    height: 38,
+                    width: 38,
+                    decoration: BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.popAndPushNamed(
+                            context, RoutesName.signupScreen);
+                      },
+                      icon: Icon(
+                        CupertinoIcons.back,
+                        color: black,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

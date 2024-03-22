@@ -60,29 +60,38 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Image(
-            fit: BoxFit.fill,
-            image: AssetImage('assets/images/img.png'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: Container(
-              height: 38,
-              width: 38,
-              decoration: BoxDecoration(
-                color: white,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.popAndPushNamed(context, RoutesName.forgotPassword);
-                },
-                icon: Icon(
-                  CupertinoIcons.back,
-                  color: black,
+          Stack(
+            children: [
+              Image(
+                image: AssetImage(
+                  'assets/images/img.png',
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 22,
+                    top: 60
+                ),
+                child: Container(
+                  height: 38,
+                  width: 38,
+                  decoration: BoxDecoration(
+                    color: white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.popAndPushNamed(
+                          context, RoutesName.forgotPassword);
+                    },
+                    icon: Icon(
+                      CupertinoIcons.back,
+                      color: black,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: 20,

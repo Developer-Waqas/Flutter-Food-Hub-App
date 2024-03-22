@@ -41,24 +41,28 @@ class DonutScreen extends StatelessWidget {
         productName: 'Sprinkle Donut',
         productThumbnail: 'assets/images/img_sprinkle_donut.png',
         unitPrice: 30,
+        productDiscription: 'Sprinkle Donut is a whimsical tale that follows the journey of a young donut named Sprinkle as it navigates the bustling bakery life. Faced with the challenge of finding its place among the other pastries, Sprinkle embarks on a quest for self-discovery, embracing its unique sprinkled exterior and discovering the power of individuality. Through colorful illustrations and endearing characters, the story celebrates diversity, acceptance, and the beauty of being true to oneself in a world filled with different flavors and textures.',
       ),
       ItemModel(
         productID: '6',
-        productName: 'Glazzed Donut',
+        productName: 'Glazed Donut',
         productThumbnail: 'assets/images/img_glazed_donut.png',
         unitPrice: 35,
+        productDiscription: 'Glazed Donut takes readers on a delectable journey through the bakery, starring a classic favorite: the glazed donut. Follow along as this sweet treat navigates the hustle and bustle of the bakery, encountering a diverse cast of characters and discovering the true essence of its simple yet irresistible charm. With its glossy exterior and soft interior, the glazed donut embodies the timeless appeal of tradition and simplicity. Perfect for your food hub app, "Glazed Donut" offers a delightful story that celebrates the beauty of simplicity and the universal love for this beloved pastry.',
       ),
       ItemModel(
         productID: '7',
         productName: 'Cronut Donut',
         productThumbnail: 'assets/images/img_cronut_donut.png',
         unitPrice: 25,
+        productDiscription: 'Cronut Donut invites readers on a delicious adventure through the innovative world of pastry fusion. Born from the creative minds of bakers seeking to blend the flakiness of a croissant with the sweetness of a donut, the cronut donut emerges as a delightful culinary marvel. Follow the cronut donut\'s journey as it captivates taste buds and sparks imaginations in the bustling bakery scene. With its unique combination of textures and flavors, the cronut donut embodies the spirit of culinary innovation and the joy of indulging in something truly special. A perfect addition to your food hub app, "Cronut Donut" celebrates the magic of culinary creativity and the joy of savoring each delightful bite.',
       ),
       ItemModel(
         productID: '8',
         productName: 'Cruller Donut',
         productThumbnail: 'assets/images/img_cruller_donut.png',
         unitPrice: 45,
+        productDiscription: '"Cruller Donut" whisks readers away on a journey through the enchanting world of this twisted, golden pastry. With its distinctive shape and delicate texture, the cruller donut stands out among its bakery peers. Follow along as this elegant treat navigates the bustling bakery scene, captivating customers with its irresistible aroma and delectable taste. With its rich history and timeless appeal, the cruller donut embodies the artistry and craftsmanship of traditional baking. "Cruller Donut" offers a delightful story that celebrates the beauty of simplicity and the timeless allure of this beloved pastry.',
       ),
     ];
 
@@ -350,6 +354,7 @@ class DonutScreen extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                                 fit: BoxFit.contain,
+                                borderRadius: 20,
                               ),
                               SizedBox(
                                 height: 10,

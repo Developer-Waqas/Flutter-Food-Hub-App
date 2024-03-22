@@ -37,26 +37,33 @@ class BurgerScreen extends StatelessWidget {
     ///Popular Burgers==============================
     List<ItemModel> itemList = [
       ItemModel(
-        productID: '1',
-        productName: 'Zinger Burger',
-        productThumbnail: 'assets/images/img_zinger_burger.png',
-        unitPrice: 65,
+          productID: '1',
+          productName: 'Zinger Burger',
+          productThumbnail: 'assets/images/img_zinger_burger.png',
+          unitPrice: 65,
+          productDiscription: 'The Zinger Burger is KFC’s original fried chicken recipe with a spicy twist. Imagine a crispy breaded chicken fillet, perfectly seasoned and fried to golden perfection. This flavorful chicken is then sandwiched between a sesame seed bun, along with fresh lettuce, creamy mayo, and a dash of zesty flavor. The name “Zinger” aptly captures the unique and tantalizing taste of this classic chicken burger.',
       ),
       ItemModel(
-          productID: '2',
-          productName: 'Egg Burger',
-          productThumbnail: 'assets/images/img_egg_burger.png',
-          unitPrice: 40),
+        productID: '2',
+        productName: 'Egg Burger',
+        productThumbnail: 'assets/images/img_egg_burger.png',
+        unitPrice: 40,
+        productDiscription: 'Egg Burger Summary: Indulge in our street-style egg burger—a juicy patty topped with a sunny-side-up egg, fresh veggies, and a tangy sauce. Satisfying and flavorful, it’s a delightful culinary experience!.',
+      ),
       ItemModel(
           productID: '3',
           productName: 'HamBurger',
           productThumbnail: 'assets/images/img_hamburger.png',
-          unitPrice: 55),
+          unitPrice: 55,
+          productDiscription: 'A hamburger is a classic fast-food staple—a simple yet satisfying sandwich. It consists of a grilled or fried beef patty, nestled between two halves of a soft bun. The patty is often seasoned with salt, pepper, and other spices, while toppings like lettuce, tomato, cheese, onions, and pickles add freshness and flavor. The magic lies in the combination of textures and tastes, making the humble hamburger a beloved favorite worldwide. ',
+      ),
       ItemModel(
           productID: '4',
           productName: 'Angus Burger',
           productThumbnail: 'assets/images/img_angus_burger.png',
-          unitPrice: 62),
+          unitPrice: 62,
+        productDiscription: 'Savor the premium delight of our Angus burger. Made from succulent Angus beef, this juicy patty is nestled in a soft bun. Classic toppings like lettuce, tomato, and cheese complete this meat lover’s dream.',
+      ),
     ];
 
     return SingleChildScrollView(
@@ -105,6 +112,8 @@ class BurgerScreen extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
+
+            ///Restaurnts Listview===============================
             Container(
               height: 300,
               child: ListView.builder(
@@ -297,6 +306,8 @@ class BurgerScreen extends StatelessWidget {
                     );
                   }),
             ),
+
+            ///Famous burgers=======================================
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
@@ -326,102 +337,101 @@ class BurgerScreen extends StatelessWidget {
                     ),
                     itemBuilder: (context, index) {
                       final item = itemList[index];
-                      return GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 1),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: black.withOpacity(0.3),
-                                    blurRadius: 5,
-                                    offset: const Offset(5, 5)),
-                              ]),
-                          child: Column(
-                            children: [
-                              AssetImageWidget(
-                                imagePath: item.productThumbnail,
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.contain,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      item.productName,
-                                      style: TextStyle(
-                                        color: black,
-                                        fontSize: 17,
-                                        fontFamily: 'SofiaSemiBold',
-                                      ),
+                      return Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 1),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        decoration: BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: black.withOpacity(0.3),
+                                  blurRadius: 5,
+                                  offset: const Offset(5, 5)),
+                            ]),
+                        child: Column(
+                          children: [
+                            AssetImageWidget(
+                              imagePath: item.productThumbnail,
+                              height: 100,
+                              width: 100,
+                              fit: BoxFit.contain,
+                              borderRadius: 20,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item.productName,
+                                    style: TextStyle(
+                                      color: black,
+                                      fontSize: 17,
+                                      fontFamily: 'SofiaSemiBold',
                                     ),
-                                    Text(
-                                      '\$${item.unitPrice}',
-                                      style: TextStyle(
-                                        color: grey,
-                                        fontSize: 15,
-                                        fontFamily: 'SofiaRegular',
-                                      ),
+                                  ),
+                                  Text(
+                                    '\$${item.unitPrice}',
+                                    style: TextStyle(
+                                      color: grey,
+                                      fontSize: 15,
+                                      fontFamily: 'SofiaRegular',
                                     ),
-                                    PersistentShoppingCart()
-                                        .showAndUpdateCartItemWidget(
-                                      inCartWidget: Container(
-                                        height: 30,
-                                        width: 150,
-                                        decoration: BoxDecoration(
-                                        border: Border.all(color: splashColor),
-                                          borderRadius: BorderRadius.circular(50),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'Remove',
-                                            style: TextStyle(
+                                  ),
+                                  PersistentShoppingCart()
+                                      .showAndUpdateCartItemWidget(
+                                    inCartWidget: Container(
+                                      height: 30,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: splashColor),
+                                        borderRadius:
+                                            BorderRadius.circular(50),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Remove',
+                                          style: TextStyle(
                                               color: black,
-                                              fontFamily: 'SofiaMedium'
-                                            ),
-                                          ),
+                                              fontFamily: 'SofiaMedium'),
                                         ),
-                                      ),
-                                      notInCartWidget: Container(
-                                        height: 30,
-                                        width: 150,
-                                        decoration: BoxDecoration(
-                                          color: splashColor,
-                                          borderRadius: BorderRadius.circular(50),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'Add to Cart',
-                                            style: TextStyle(
-                                                color: white,
-                                                fontFamily: 'SofiaMedium'
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      product: PersistentShoppingCartItem(
-                                        productId: item.productID,
-                                        productName: item.productName,
-                                        unitPrice: double.parse(
-                                            item.unitPrice.toString()),
-                                        quantity: 1,
-                                        productThumbnail: item.productThumbnail,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                    notInCartWidget: Container(
+                                      height: 30,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                        color: splashColor,
+                                        borderRadius:
+                                            BorderRadius.circular(50),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Add to Cart',
+                                          style: TextStyle(
+                                              color: white,
+                                              fontFamily: 'SofiaMedium'),
+                                        ),
+                                      ),
+                                    ),
+                                    product: PersistentShoppingCartItem(
+                                      productId: item.productID,
+                                      productName: item.productName,
+                                      unitPrice: double.parse(
+                                          item.unitPrice.toString()),
+                                      quantity: 1,
+                                      productThumbnail: item.productThumbnail,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       );
                     },

@@ -71,7 +71,9 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(CupertinoIcons.person_alt),
               title: const Text('Profile'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(context, RoutesName.profileScreen, (route) => false);
+              },
             ),
             ListTile(
               leading: const Icon(Icons.location_on),

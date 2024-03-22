@@ -35,18 +35,21 @@ class CakeScreen extends StatelessWidget {
         productName: 'Choc Cake',
         productThumbnail: 'assets/images/img_choc_cake.png',
         unitPrice: 40,
+        productDiscription: ' Dive into the world of chocolate bliss with our decadent chocolate cake. Moist layers of cocoa-infused cake, paired with velvety ganache or buttercream, create an irresistible treat. Whether it’s a classic devil’s food cake, a fudgy flourless delight, or a lava cake with a gooey center, our chocolate cake satisfies every sweet craving.',
       ),
       const ItemModel(
         productID: '14',
         productName: 'Spongy Cake',
         productThumbnail: 'assets/images/img_spongy_cake.png',
         unitPrice: 42,
+        productDiscription: 'A sponge cake is a light and fluffy dessert made with flour, sugar, and eggs—no shortening. Its porous texture resembles a sponge, with distinctive holes. Whether enjoyed plain or paired with fillings like buttercream or custard, the sponge cake is a timeless treat. ',
       ),
       const ItemModel(
         productID: '15',
         productName: 'Vanilla Cake',
         productThumbnail: 'assets/images/img_vanilla_cake.png',
         unitPrice: 48,
+        productDiscription: 'A vanilla cake is a timeless delight—a tender, buttery cake infused with the warm essence of vanilla. Whether enjoyed plain, adorned with whipped cream, or layered with fruity fillings, this classic cake brings comfort and joy to every bite.',
       ),
     ];
 
@@ -338,6 +341,7 @@ class CakeScreen extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                                 fit: BoxFit.contain,
+                                borderRadius: 20,
                               ),
                               const SizedBox(
                                 height: 10,

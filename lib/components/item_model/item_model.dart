@@ -1,5 +1,5 @@
 class ItemModel {
-  final String productID, productName, productThumbnail;
+  final String productID, productName, productThumbnail, productDiscription;
 
   final double unitPrice;
 
@@ -8,5 +8,6 @@ class ItemModel {
     required this.productName,
     required this.productThumbnail,
     required this.unitPrice,
+    required this.productDiscription,
   });
 }

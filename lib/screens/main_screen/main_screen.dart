@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:food_hub_app/screens/address_screen/address_screen.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
 import 'package:food_hub_app/screens/shopping_cart_veiw/shopping_cart_veiw.dart';
@@ -36,6 +37,8 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  bool isDark = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +60,12 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      drawer:  MyDrawer(),
+
+      ///Drawer=============================>>>>>>>>>>
+      drawer: MyDrawer(),
+
+
+      ///bottom navigation drawer======================>>>>>>>>>>>>>>>
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         iconSize: 30,
@@ -77,32 +85,40 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
-            label: "Delivery Address",
+            label: "Address",
           ),
           BottomNavigationBarItem(
-            icon: PersistentShoppingCart().showCartItemCountWidget(cartItemCountWidgetBuilder: (itemCount){
+            icon: PersistentShoppingCart().showCartItemCountWidget(
+                cartItemCountWidgetBuilder: (itemCount) {
               return Badge(
                 backgroundColor: Colors.yellow,
-                label: Text(itemCount.toString(),style: TextStyle(
-                  fontFamily: 'SofiaMedium',
-                  color: black,
-                ),),
-                child: Icon(CupertinoIcons.bag_fill,color: splashColor,),
+                label: Text(
+                  itemCount.toString(),
+                  style: TextStyle(
+                    fontFamily: 'SofiaMedium',
+                    color: black,
+                  ),
+                ),
+                child: Icon(
+                  CupertinoIcons.bag_fill,
+                  color: splashColor,
+                ),
               );
             }),
-            label: "Cart",
+            label: "Shopping Cart",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: "Favorites",
           ),
           BottomNavigationBarItem(
-
             icon: Icon(Icons.notifications),
             label: "Notifications",
           ),
         ],
       ),
+
+      ///tab pages============>>>>>>>>>>>>
       body: _pages[_selectedTab],
     );
   }

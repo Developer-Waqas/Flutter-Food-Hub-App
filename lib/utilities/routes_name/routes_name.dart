@@ -5,8 +5,8 @@ class RoutesName {
   static const loginScreen = 'login_screen';
   static const signupScreen = 'signup_screen';
   static const forgotPassword = 'forgot_password_screen';
-  static const pinCodeScreen = 'pin_code_screen';
-  static const resetPassword = 'reset_password_screen';
   static const phoneNoScreen = 'phone_no_screen';
   static const verificationCodeScreen = 'verification_code_screen';
+  static const zingerBurgerDetailScreen = 'zinger_burger_detail_screen';
+  static const profileScreen = 'profile_screen';
 }

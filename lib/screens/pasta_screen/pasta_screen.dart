@@ -35,18 +35,22 @@ class PastaScreen extends StatelessWidget {
         productName: 'Farfalle Pasta',
         productThumbnail: 'assets/images/img_farfalle_pasta.png',
         unitPrice: 20,
+        productDiscription: '"Farfalle Pasta" invites readers on a culinary journey through the enchanting world of Italian cuisine. Named after butterflies due to its distinctive bow-tie shape, farfalle pasta is as visually stunning as it is delicious. Follow along as this versatile pasta navigates its way through traditional Italian kitchens and modern dining tables alike, captivating diners with its elegant appearance and satisfying texture. With its ability to pair perfectly with a variety of sauces and ingredients, farfalle pasta embodies the essence of versatility and creativity in cooking. Whether served in a creamy Alfredo sauce or tossed with fresh vegetables in a light vinaigrette, farfalle pasta delights the senses and brings joy to any meal. "Farfalle Pasta" celebrates the rich culinary heritage of Italy and the timeless appeal of this beloved pasta shape.',
+
       ),
       const ItemModel(
         productID: '17',
         productName: 'Linguine Pasta',
         productThumbnail: 'assets/images/img_linguine_pasta.png',
         unitPrice: 32,
+        productDiscription: '"Linguine Pasta" invites readers on a culinary journey through the flavorful world of Italian cuisine. With its long, flat shape resembling narrow ribbons, linguine pasta exudes elegance and versatility in every bite. Follow along as this beloved pasta variety graces the tables of traditional trattorias and contemporary kitchens alike, enchanting diners with its smooth texture and ability to perfectly capture the flavors of accompanying sauces and ingredients. Whether tossed in a robust marinara sauce or adorned with succulent seafood in a garlic-infused broth, linguine pasta embodies the essence of simplicity and sophistication in Italian cooking. "Linguine Pasta" celebrates the timeless charm of Italy\'s culinary traditions and the universal appeal of this classic pasta shape.',
       ),
       const ItemModel(
         productID: '18',
         productName: 'Ditalini Pasta',
         productThumbnail: 'assets/images/img_ditalini_pasta.png',
         unitPrice: 35,
+        productDiscription: '"Ditalini Pasta" beckons readers to savor the delightful essence of Italian comfort cuisine. Named for its diminutive size and tube-like shape, ditalini pasta offers a charming addition to soups, salads, and casseroles. Follow the journey of ditalini pasta as it finds its way into the heart of traditional Italian kitchens and modern culinary creations. With its versatile nature and ability to absorb the rich flavors of hearty broths and savory sauces, ditalini pasta embodies the essence of warmth and comfort in every spoonful. Whether nestled in a bowl of hearty minestrone soup or adding texture to a vibrant pasta salad, ditalini pasta brings joy and satisfaction to any meal. "Ditalini Pasta" celebrates the rich culinary heritage of Italy and the timeless appeal of this beloved pasta shape.',
       ),
     ];
 
@@ -338,6 +342,7 @@ class PastaScreen extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                                 fit: BoxFit.contain,
+                                borderRadius: 20,
                               ),
                               const SizedBox(
                                 height: 10,

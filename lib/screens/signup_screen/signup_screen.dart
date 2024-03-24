@@ -8,6 +8,7 @@ import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
 import 'package:food_hub_app/constants/app_styles/app_style.dart';
 import 'package:food_hub_app/utilities/routes_name/routes_name.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -43,6 +44,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         loading = false;
       });
     });
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.setString('name', nameController.text.toString());
   }
 
   bool loading = false;
@@ -123,6 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 8,
                   ),
                   CustomTextField(
+                    controller: nameController,
                     keyboardType: TextInputType.name,
                     hintText: 'Type Full Name',
                     validator: (value) {

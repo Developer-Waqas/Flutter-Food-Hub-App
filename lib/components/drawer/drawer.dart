@@ -2,13 +2,31 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utilities/routes_name/routes_name.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   MyDrawer({super.key});
 
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
   final auth = FirebaseAuth.instance;
+String name = '';
+
+  loadData() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    name = sp.getString('name') ?? 'Error';
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +42,8 @@ class MyDrawer extends StatelessWidget {
             ///User holder account detail========
             UserAccountsDrawerHeader(
               ///name================
-              accountName: const Text(
-                'Waqas Khan',
+              accountName: Text(
+                name.toString(),
                 style: TextStyle(
                   fontFamily: 'Poppins Bold',
                   color: Colors.black,

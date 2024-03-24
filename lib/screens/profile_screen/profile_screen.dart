@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_colors/app_color.dart';
 import '../../utilities/routes_name/routes_name.dart';
@@ -13,7 +13,19 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String? name;
+  String name = '';
+
+  loadData() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    name = sp.getString('name') ?? 'Error';
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+    loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Stack(
             children: [
-              Image(
+              const Image(
                 image: AssetImage(
                   'assets/images/img_profile_bg_design.png',
                 ),
@@ -40,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     maxRadius: 50,
                     backgroundColor: white,
                     backgroundImage:
-                        AssetImage('assets/images/img_profile.png'),
+                        const AssetImage('assets/images/img_profile.png'),
                   ),
                 ),
               ),
@@ -85,15 +97,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-          Text(
-            'Waqas Muhammad',
+          Text(name.toString(),
             style: TextStyle(
               color: black,
               fontFamily: 'SofiaSemiBold',
               fontSize: 20
             ),
           ),
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
           Text(
             'Edit profile',
             style: TextStyle(

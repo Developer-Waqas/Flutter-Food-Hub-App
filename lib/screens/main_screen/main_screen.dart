@@ -19,7 +19,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedTab = 0;
 
-  List _pages = [
+  final List _pages = [
     HomeScreen(),
     const AddressScreen(),
     const ShoppingCartView(),
@@ -36,8 +36,6 @@ class _MainScreenState extends State<MainScreen> {
       _selectedTab = index;
     });
   }
-
-  bool isDark = true;
 
   @override
   Widget build(BuildContext context) {

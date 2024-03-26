@@ -213,7 +213,7 @@ class WelcomeScreen extends StatelessWidget {
                     fontSize: 17,
                   ),
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: white, width: 1),
+                  border: Border.all(color: black.withOpacity(0.7), width: 1),
                 ),
               ),
               const SizedBox(height: 20),

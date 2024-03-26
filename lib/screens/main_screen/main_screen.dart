@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:food_hub_app/screens/address_screen/address_screen.dart';
 import 'package:food_hub_app/screens/my_orders_screen/my_orders.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
+import 'package:food_hub_app/screens/profile_screen/profile_screen.dart';
 import 'package:food_hub_app/screens/shopping_cart_veiw/shopping_cart_veiw.dart';
 import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
@@ -52,15 +54,20 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: white,
         elevation: 0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: Container(
-              height: 38,
-              width: 38,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                      image: AssetImage('assets/images/img_profile.png'))),
+          GestureDetector(
+            onTap: (){
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ProfileScreen()), (route) => false);
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: Container(
+                height: 38,
+                width: 38,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: const DecorationImage(
+                        image: AssetImage('assets/images/img_profile.png'))),
+              ),
             ),
           ),
         ],

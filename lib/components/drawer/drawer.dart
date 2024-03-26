@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
+import 'package:food_hub_app/screens/address_screen/delivery_screen.dart';
+import 'package:food_hub_app/screens/my_orders_screen/my_orders.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utilities/routes_name/routes_name.dart';
@@ -15,16 +17,20 @@ class MyDrawer extends StatefulWidget {
 
 class _MyDrawerState extends State<MyDrawer> {
   final auth = FirebaseAuth.instance;
-String name = '';
+  String name = '';
+  String email = '';
 
   loadData() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    name = sp.getString('name') ?? 'Error';
-  }
+    name = sp.getString('name') ?? '';
+    email = sp.getString('email') ?? '';
+    setState(() {
 
+    });
+  }
   @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
+  void initState() {
+    super.initState();
     loadData();
   }
 
@@ -44,17 +50,17 @@ String name = '';
               ///name================
               accountName: Text(
                 name.toString(),
-                style: TextStyle(
-                  fontFamily: 'Poppins Bold',
+                style: const TextStyle(
+                  fontFamily: 'SofiaMedium',
                   color: Colors.black,
                 ),
               ),
 
               ///email=================
-              accountEmail: const Text(
-                'WaqasKHan@gmail.com',
+              accountEmail: Text(
+                email.toString(),
                 style: TextStyle(
-                  fontFamily: 'Poppins Light',
+                  fontFamily: 'SofiaRegular',
                   color: Colors.black,
                 ),
               ),
@@ -84,7 +90,9 @@ String name = '';
             ListTile(
               leading: const Icon(CupertinoIcons.square_list_fill),
               title: const Text('My Orders'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MyOrders()), (route) => false);
+              },
             ),
             ListTile(
               leading: const Icon(CupertinoIcons.person_alt),
@@ -96,7 +104,9 @@ String name = '';
             ListTile(
               leading: const Icon(Icons.location_on),
               title: const Text('Delivery Address'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DeliveryScreen()), (route) => false);
+              },
             ),
             ListTile(
               leading: const Icon(Icons.payment),

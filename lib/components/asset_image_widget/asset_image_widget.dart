@@ -23,6 +23,7 @@ class AssetImageWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Image.asset(
+    
         imagePath,
         height: height,
         width: width,

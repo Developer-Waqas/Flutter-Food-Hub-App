@@ -24,6 +24,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
 
   final nameController = TextEditingController();
 
+  final passwordController = TextEditingController();
+
+
   final formKey = GlobalKey<FormState>();
 
   SignUpUser() {
@@ -33,6 +36,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
       });
       _auth
           .verifyPhoneNumber(
+            timeout: const Duration(seconds: 120),
         phoneNumber: phoneController.text,
         verificationCompleted: (PhoneAuthCredential credential) {
           setState(() {
@@ -56,19 +60,33 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
           });
         },
         codeAutoRetrievalTimeout: (e) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                e.toString(),
-              ),
-            ),
-          );
+          ToastMessages().toastMessages(e.toString());
           setState(() {
             loading = false;
           });
         },
       );
     }
+  }
+
+  RegExp passValid = RegExp(r"^(?=.*\d)[A-Za-z0-9-]+$");
+
+  bool validatePassword(String msg) {
+    String password = msg.trim();
+
+    if (passValid.hasMatch(password)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool _isHidden = true;
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 
   bool loading = false;
@@ -84,7 +102,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
           children: [
             Stack(
               children: [
-                Image(
+                const Image(
                   image: AssetImage(
                     'assets/images/img.png',
                   ),
@@ -186,12 +204,58 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                             }
                           },
                         ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        const Text(
+                          'Password',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'SofiaRegular',
+                              color: Color(0xff9796A1)),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        CustomTextField(
+                          keyboardType: TextInputType.text,
+                          controller: passwordController,
+                          hintText: 'Type Password',
+                          obscureText: _isHidden,
+                          suffixIcon: InkWell(
+                            onTap: _togglePasswordView,
+                            child: Icon(
+                              _isHidden
+                                  ? CupertinoIcons.eye
+                                  : CupertinoIcons.eye_slash,
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter password';
+                            } else if (value.length < 6) {
+                              return 'Password should greater than 6 characters';
+                            }
+                            else {
+                              bool result =
+                              validatePassword(value);
+                              if (result) {
+                                return null;
+                              } else {
+                                return 'Password should contain atleast One Number';
+                              }
+                            }
+                          },
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                      ],
+                    ),
+                  ),
             const SizedBox(
               height: 30,
             ),
@@ -241,12 +305,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                 )
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
+    ],
       ),
-    );
+      ),
+        );
   }
 }

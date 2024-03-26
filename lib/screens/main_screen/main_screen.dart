@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:food_hub_app/screens/address_screen/address_screen.dart';
+import 'package:food_hub_app/screens/my_orders_screen/my_orders.dart';
 import 'package:food_hub_app/screens/home_screen/home_screen.dart';
 import 'package:food_hub_app/screens/shopping_cart_veiw/shopping_cart_veiw.dart';
 import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
@@ -24,10 +25,16 @@ class _MainScreenState extends State<MainScreen> {
     const AddressScreen(),
     const ShoppingCartView(),
     const Center(
-      child: Text("Favorite"),
+      child: Text("No foods are in favourites",style: TextStyle(
+        fontSize: 18,
+        fontFamily: 'SofiaSemiBold',
+      ),),
     ),
     const Center(
-      child: Text("Notification"),
+      child: Text("No Notifications yet!",style: TextStyle(
+        fontSize: 30,
+        fontFamily: 'SofiaSemiBold',
+      ),),
     ),
   ];
 

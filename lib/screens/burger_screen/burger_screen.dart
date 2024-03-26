@@ -36,28 +36,28 @@ class BurgerScreen extends StatelessWidget {
 
     ///Popular Burgers==============================
     List<ItemModel> itemList = [
-      ItemModel(
+      const ItemModel(
           productID: '1',
           productName: 'Zinger Burger',
           productThumbnail: 'assets/images/img_zinger_burger.png',
           unitPrice: 65,
           productDiscription: 'The Zinger Burger is KFC’s original fried chicken recipe with a spicy twist. Imagine a crispy breaded chicken fillet, perfectly seasoned and fried to golden perfection. This flavorful chicken is then sandwiched between a sesame seed bun, along with fresh lettuce, creamy mayo, and a dash of zesty flavor. The name “Zinger” aptly captures the unique and tantalizing taste of this classic chicken burger.',
       ),
-      ItemModel(
+      const ItemModel(
         productID: '2',
         productName: 'Egg Burger',
         productThumbnail: 'assets/images/img_egg_burger.png',
         unitPrice: 40,
         productDiscription: 'Egg Burger Summary: Indulge in our street-style egg burger—a juicy patty topped with a sunny-side-up egg, fresh veggies, and a tangy sauce. Satisfying and flavorful, it’s a delightful culinary experience!.',
       ),
-      ItemModel(
+      const ItemModel(
           productID: '3',
           productName: 'HamBurger',
           productThumbnail: 'assets/images/img_hamburger.png',
           unitPrice: 55,
           productDiscription: 'A hamburger is a classic fast-food staple—a simple yet satisfying sandwich. It consists of a grilled or fried beef patty, nestled between two halves of a soft bun. The patty is often seasoned with salt, pepper, and other spices, while toppings like lettuce, tomato, cheese, onions, and pickles add freshness and flavor. The magic lies in the combination of textures and tastes, making the humble hamburger a beloved favorite worldwide. ',
       ),
-      ItemModel(
+      const ItemModel(
           productID: '4',
           productName: 'Angus Burger',
           productThumbnail: 'assets/images/img_angus_burger.png',
@@ -358,7 +358,7 @@ class BurgerScreen extends StatelessWidget {
                               fit: BoxFit.contain,
                               borderRadius: 20,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Expanded(

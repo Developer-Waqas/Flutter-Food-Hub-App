@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:food_hub_app/components/toast_messege/toast_messege.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../components/custom_button/custom_button_3.dart';
 import '../../components/custom_text_feild/custom_text_feild.dart';
@@ -30,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   ///UserLogin Function===============================
-  loginUser() {
+  loginUser() async {
       setState(() {
         loading = true;
       });
@@ -46,7 +48,22 @@ class _LoginScreenState extends State<LoginScreen> {
           loading = false;
         });
       });
+      SharedPreferences sp = await SharedPreferences.getInstance();
+      sp.setString('email', emailController.text.toString());
   }
+
+  RegExp passValid = RegExp(r"^(?=.*\d)[A-Za-z0-9-]+$");
+
+  bool validatePassword(String msg) {
+    String password = msg.trim();
+
+    if (passValid.hasMatch(password)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   bool loading = false;
 
@@ -170,7 +187,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else if (value.length < 6) {
                         return 'Password should greater than 6 characters';
                       } else {
-                        return null;
+                        bool result =
+                        validatePassword(value);
+                        if (result) {
+                          return null;
+                        } else {
+                          return 'Password should contain atleast One Number';
+                        }
                       }
                     },
                   ),
@@ -244,7 +267,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -279,6 +302,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
+SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -370,6 +394,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 20,),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       loading = true;
     });
-
+    ///firebase==========================
     final _auth = FirebaseAuth.instance;
     _auth
         .createUserWithEmailAndPassword(
@@ -39,16 +40,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
       Navigator.pushNamedAndRemoveUntil(
           context, RoutesName.mainScreen, (route) => false);
     }).onError((error, stackTrace) {
-     ToastMessages().toastMessages(error.toString());
+      ToastMessages().toastMessages(error.toString());
       setState(() {
         loading = false;
       });
     });
+
+
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('name', nameController.text.toString());
+    sp.setString('email', emailController.text.toString());
+
+
+  }
+
+  RegExp passValid = RegExp(r"^(?=.*\d)[A-Za-z0-9-]+$");
+
+  bool validatePassword(String msg) {
+    String password = msg.trim();
+
+    if (passValid.hasMatch(password)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   bool loading = false;
+
   ///hide password
   bool _isHidden = true;
 
@@ -75,10 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 22,
-                      top: 60
-                  ),
+                  padding: const EdgeInsets.only(left: 22, top: 60),
                   child: Container(
                     height: 38,
                     width: 38,
@@ -134,7 +150,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return 'Please enter Name';
                       } else if (value.length < 3) {
                         return 'Name should greater than 3 characters';
-                      }else if (value.length > 20) {
+                      } else if (value.length > 20) {
                         return 'Name should Less than 20 characters';
                       } else {
                         return null;
@@ -197,8 +213,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return 'Please enter password';
                       } else if (value.length < 6) {
                         return 'Password should greater than 6 characters';
-                      } else {
-                        return null;
+                      }
+                      else {
+                        bool result =
+                        validatePassword(value);
+                        if (result) {
+                          return null;
+                        } else {
+                          return 'Password should contain atleast One Number';
+                        }
                       }
                     },
                   ),
@@ -256,30 +279,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 5,
             ),
-            Center(
-              child: Container(
-                height: 45,
-                width: 268,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(color: splashColor),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, RoutesName.phoneNoScreen, (route) => false);
-                  },
-                  child: Text(
-                    'Phone Number',
-                    style: TextStyle(
-                      fontFamily: 'SofiaMedium',
-                      fontSize: 17,
-                      color: splashColor,
-                    ),
-                  ),
-                ),
-              ),
-            ),
             const SizedBox(
               height: 10,
             ),
@@ -314,6 +313,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            SizedBox(height: 10,),
+            Center(
+              child: Container(
+                height: 45,
+                width: 268,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(color: splashColor),
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, RoutesName.phoneNoScreen, (route) => false);
+                  },
+                  child: Text(
+                    'Phone Number',
+                    style: TextStyle(
+                      fontFamily: 'SofiaMedium',
+                      fontSize: 17,
+                      color: splashColor,
+                    ),
+                  ),
+                ),
               ),
             ),
             Row(
@@ -407,6 +431,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 20,),
           ],
         ),
       ),

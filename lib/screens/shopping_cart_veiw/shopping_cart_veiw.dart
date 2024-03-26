@@ -4,6 +4,7 @@ import 'package:persistent_shopping_cart/persistent_shopping_cart.dart';
 
 import '../../components/asset_image_widget/asset_image_widget.dart';
 import '../../constants/app_colors/app_color.dart';
+import '../../constants/app_styles/app_style.dart';
 
 class ShoppingCartView extends StatefulWidget {
   const ShoppingCartView({super.key});
@@ -21,6 +22,10 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
         padding: const EdgeInsets.symmetric(horizontal: 14.5),
         child: Column(
           children: [
+            Text(
+              'Shopping Cart',
+              style: headingStyle5,
+            ),
             Expanded(
               child: PersistentShoppingCart().showCartItems(
                 cartTileWidget: ({required data}) => Card(

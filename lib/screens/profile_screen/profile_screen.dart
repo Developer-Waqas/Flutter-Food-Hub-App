@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:food_hub_app/components/my_container/my_container2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_colors/app_color.dart';
@@ -13,18 +15,21 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String name = '';
 
-  loadData() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    name = sp.getString('name') ?? 'Error';
-  }
+  String name = '';
+  String email = '';
 
   @override
-  void setState(VoidCallback fn) {
-    // TODO: implement setState
-    super.setState(fn);
+  void initState() {
+    super.initState();
     loadData();
+  }
+
+  void loadData() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    name = sp.getString('name') ?? '';
+    email = sp.getString('email') ?? '';
+    setState(() { });
   }
 
   @override
@@ -97,20 +102,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-          Text(name.toString(),
+          Text(
+            name.toString(),
             style: TextStyle(
-              color: black,
-              fontFamily: 'SofiaSemiBold',
-              fontSize: 20
-            ),
+                color: black, fontFamily: 'SofiaSemiBold', fontSize: 20),
           ),
-          const SizedBox(height: 5,),
+          const SizedBox(
+            height: 5,
+          ),
           Text(
             'Edit profile',
             style: TextStyle(
-                color: grey,
-                fontFamily: 'SofiaRegular',
-                fontSize: 14
+                color: grey, fontFamily: 'SofiaRegular', fontSize: 14),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 17.5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Text('Full Name',
+                  style: TextStyle(
+                      fontFamily: 'SofiaSemiBold',
+                      color: grey,
+                      fontSize: 14
+                  ),
+                ),
+                const SizedBox(
+              height: 10,
+            ),
+            MyContainerTwo(
+              text: name.toString(),
+              style: TextStyle(
+                fontFamily: 'SofiaMedium',
+                color: black,
+                fontSize: 17
+              ),
+              height: 65,
+              width: 341,
+              borderRadius: 10,
+              border: Border.all(
+                color: Color(0xffEEEEEE),
+              ),
+              color: grey.withOpacity(0.2),
+            ),
+                SizedBox(height: 10,),
+                Divider(
+
+                  color: grey,
+                  thickness: 1,
+                ),
+            const SizedBox(
+              height: 10,
+            ),
+                Text('Email',
+              style: TextStyle(
+                  fontFamily: 'SofiaSemiBold',
+                  color: grey,
+                  fontSize: 14
+              ),),
+            const SizedBox(
+              height: 10,
+            ),
+                     MyContainerTwo(
+              text: email.toString(),
+             style: TextStyle(
+                 fontFamily: 'SofiaMedium',
+                 color: black,
+                 fontSize: 17
+             ),
+              height: 65,
+              width: 341,
+              borderRadius: 10,
+              border: Border.all(
+                color: Color(0xffEEEEEE),
+              ),
+              color: grey.withOpacity(0.2),
+            ),
+
+                SizedBox(height: 10,),
+                Divider(
+
+                  color: grey,
+                  thickness: 1,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
             ),
           ),
         ],

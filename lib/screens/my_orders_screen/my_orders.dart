@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_hub_app/constants/app_colors/app_color.dart';
+import 'package:food_hub_app/constants/app_styles/app_style.dart';
 
 import '../../components/asset_image_widget/asset_image_widget.dart';
 import '../../components/item_model/item_model.dart';
-import '../../constants/app_styles/app_style.dart';
 import '../../utilities/routes_name/routes_name.dart';
 
 class MyOrders extends StatelessWidget {
@@ -76,7 +76,7 @@ class MyOrders extends StatelessWidget {
               ],
             ),
             Text(
-              'Orders',
+              'My Orders',
               style: headingStyle5,
             ),
             Padding(

@@ -23,7 +23,7 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
         child: Column(
           children: [
             Text(
-              'Shopping Cart',
+              'Cart',
               style: headingStyle5,
             ),
             Expanded(

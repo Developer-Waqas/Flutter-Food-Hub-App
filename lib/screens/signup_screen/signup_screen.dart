@@ -19,14 +19,20 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  ///Email Controller========================================
   final emailController = TextEditingController();
 
+  ///Password Controller========================================
   final passwordController = TextEditingController();
 
+  ///Name Controller=====================================
   final nameController = TextEditingController();
 
+  ///Form Key=========================================
   final formKey = GlobalKey<FormState>();
 
+  ///SignUp User Function======================
   signUpUser() async {
     setState(() {
       loading = true;
@@ -47,18 +53,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
 
 
+    ///Shared Preferences for Passing and Storing Data======================
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('name', nameController.text.toString());
     sp.setString('email', emailController.text.toString());
-
-
   }
 
+  ///Password Regular Expression==============================
   RegExp passValid = RegExp(r"^(?=.*\d)[A-Za-z0-9-]+$");
 
+  ///Password Validator Function======================
   bool validatePassword(String msg) {
     String password = msg.trim();
-
     if (passValid.hasMatch(password)) {
       return true;
     } else {
@@ -66,11 +72,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
+  ///Bool for loading-Circular Indicator======================
   bool loading = false;
 
   ///hide password
   bool _isHidden = true;
 
+  ///Eye button Function=====================
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
@@ -93,6 +101,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     'assets/images/img.png',
                   ),
                 ),
+
+                ///Back Button Container===================================
                 Padding(
                   padding: const EdgeInsets.only(left: 22, top: 60),
                   child: Container(
@@ -131,6 +141,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 20,
                   ),
+
+                  ///Name Text Field=====================================
                   const Text(
                     'Full Name',
                     style: TextStyle(
@@ -160,6 +172,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 10,
                   ),
+
+                  ///Email Text Field=========================================
                   const Text(
                     'E-mail',
                     style: TextStyle(
@@ -185,6 +199,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 15,
                   ),
+
+                  ///Password Text Field=====================================
                   const Text(
                     'Password',
                     style: TextStyle(
@@ -231,6 +247,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 20,
             ),
+
+            ///SignUp Button====================================
             Center(
               child: CustomButton3(
                 width: 248,
@@ -249,6 +267,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
+
+            ///Already Account Button=======================================
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -286,6 +306,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
+
+                  ///Divider========================
                   Expanded(
                     child: Divider(
                       color: grey,
@@ -295,6 +317,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     width: 10,
                   ),
+
+                  ///Also Sign Up with =============================
                   Text(
                     "Or Sign Up with",
                     style: TextStyle(
@@ -306,6 +330,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     width: 10,
                   ),
+
+                  ///Divider========================
                   Expanded(
                     child: Divider(
                       thickness: 2,
@@ -316,6 +342,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             SizedBox(height: 10,),
+
+            ///Phone Number Buttons========================================
             Center(
               child: Container(
                 height: 45,
@@ -340,9 +368,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
+
+            ///Row for Direct SignUp Buttons================================
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+
+                ///Face Book Button===================================
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Container(
@@ -364,6 +396,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
+
+                ///Google Button=====================================
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Container(
@@ -386,6 +420,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
+
+                ///Apple acc Button=========================================
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Container(
@@ -408,6 +444,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
+
+                ///Twitter Buttons=======================================
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Container(
